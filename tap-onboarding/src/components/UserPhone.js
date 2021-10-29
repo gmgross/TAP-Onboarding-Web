@@ -1,15 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Container, Typography, Grid, TextField, Button } from '@material-ui/core'
 
-
-
 const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
+    const urlOriginalBase = 'https://api.qa.auntap.io/public/check_user?phone[equals]=' 
+    const [errorBase, setErrorBase] = useState(false);
+    const [ayudaErrorBase, setAyudaErrorBase] = useState('');
+    var telefonoExistente;
 
-    const Continue = e => {
+    const Continue = async(e) => {
         e.preventDefault();
-        nextStep();
+        await verificacionBase()
+        if(telefonoExistente == false){
+            nextStep();
+        } else{
+            e.preventDefault();
+            setErrorBase(true);
+            setAyudaErrorBase("El telefono ya esta asociado a un usuario existente")
+        }
+        
     }
 
+    const verificacionBase = async() => {
+        var url = urlOriginalBase + values.phone;
+        const response = await fetch(url);
+        const json = await response.json();
+        telefonoExistente = json.exist;
+    }
     const Previous = e => {
         e.preventDefault();
         prevStep();
@@ -21,23 +37,24 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class= "pt-6 pb-10">
-                            <p class="text-indigo-900 text-3xl text-center font-sans">Ingresá tu celular</p>
+                            <p class="text-indigo-900 text-2xl text-center font-sans">Ingresá tu celular</p>
                         </div>
                         <div class= "pt-6 pb-5">
-                            <p class="text-indigo-800 text-2xl text-center font-sans">Lo necesitamos para enviarte un código de verificación</p>
+                            <p class="text-indigo-800 text-1xl text-center font-sans">Lo necesitamos para enviarte un código de verificación</p>
                         </div>
-                        <form class= "pt-5 pb-10">               
+                        <form class= "pt-6 pb-10">               
                             <Grid item xs={12} >
-                            <TextField                             
+                            <TextField
+                                error={errorBase}
+                                helperText={ayudaErrorBase}                             
                                 placeholder="Celular"
                                 label="Ej. 11 2345 6789"
-                                // type="number"
                                 onChange={handleChange('phone')}
                                 defaultValue={values.phone}
                                 fullWidth
                             />
                         </Grid>
-                            <div class = "pt-24 flex flex-col">
+                            <div class = "pt-16 flex flex-col">
                             <div class="py-2">
                             <Button onClick={Continue} type="submit" variant="contained" class="rounded-lg bg-indigo-500 hover:bg-indigo-400 px-10 text-white font-bold py-2"                            >
                                     Siguiente

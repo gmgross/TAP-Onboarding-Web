@@ -15,10 +15,10 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
         <Container component="main" maxWidth="xs">
             <div>
                 <div class= "pt-6 pb-10">
-                    <p class="text-indigo-900 text-3xl text-center font-sans">Ingresá el código</p>
+                    <p class="text-indigo-900 text-2xl text-center font-sans">Ingresá el código</p>
                 </div>
                 <div class= "pt-6 pb-5">
-                    <p class="text-indigo-800 text-2xl text-center font-sans">Te lo enviamos por mensaje de texto</p>
+                    <p class="text-indigo-800 text-1xl text-center font-sans">Te lo enviamos por mensaje de texto</p>
                 </div>
                 <form class= "pt-5 pb-10">        
                     <div class="flex flex-box pl-1">       

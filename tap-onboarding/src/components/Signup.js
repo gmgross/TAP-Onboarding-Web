@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import UserAccount from './UserAccount';
-import UserDeclaration from './UserDeclaration';
+import UserDeclaration1 from './UserDeclaration1';
+import UserDeclaration2 from './UserDeclaration2';
 import UserDetails from './UserDetails';
 import UserDetailsConfirm from './UserDetailsConfirm';
 import UserPhone from './UserPhone';
@@ -36,8 +37,8 @@ export default class Signup extends Component {
 
     render() {
         const { step } = this.state;
-        const { email, pin, name, lastName,dni } = this.state;
-        const values = { email, pin, name, lastName,dni }
+        const { email, pin, name, lastName,dni,phone } = this.state;
+        const values = { email, pin, name, lastName,dni,phone }
 
         switch (step) {
             case 1:
@@ -95,12 +96,21 @@ export default class Signup extends Component {
                 )
             case 7:
                 return (
-                    <UserDeclaration 
+                    <UserDeclaration1 
                     prevStep={this.prevStep}
+                    nextStep={this.nextStep}
                     handleChange={this.handleChange}
                     values={values}
                     />
                 )
+                case 8:
+                    return (
+                        <UserDeclaration2
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                        />
+                    )
             default:
             // do nothing
         }
