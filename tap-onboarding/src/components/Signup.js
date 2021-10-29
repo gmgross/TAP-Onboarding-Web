@@ -5,7 +5,7 @@ import UserDetails from './UserDetails';
 import UserDetailsConfirm from './UserDetailsConfirm';
 import UserPhone from './UserPhone';
 import UserPhoneVerification from './UserPhoneVerification';
-
+import UserPassword from './UserPassword';
 export default class Signup extends Component {
 
     state = {
@@ -13,8 +13,8 @@ export default class Signup extends Component {
         email: '',
         pin: '',
         phone: '',
-        name: '',
-        lastName: '',
+        dni:'',
+        password:''
     }
 
     // vuelve al paso anterior
@@ -36,8 +36,8 @@ export default class Signup extends Component {
 
     render() {
         const { step } = this.state;
-        const { email, pin, name, lastName } = this.state;
-        const values = { email, pin, name, lastName }
+        const { email, pin, name, lastName,dni } = this.state;
+        const values = { email, pin, name, lastName,dni }
 
         switch (step) {
             case 1:
@@ -48,7 +48,16 @@ export default class Signup extends Component {
                         values={values}
                     />
                 )
-            case 2:
+                case 2:
+                    return (
+                        <UserPassword
+                            prevStep={this.prevStep}
+                            nextStep={this.nextStep}
+                            handleChange={this.handleChange}
+                            values={values}
+                        />
+                    )
+            case 3:
                 return (
                     <UserPhone
                         prevStep={this.prevStep}
@@ -57,7 +66,7 @@ export default class Signup extends Component {
                         values={values}
                     />
                 )
-            case 3:
+            case 4:
                 return (
                     <UserPhoneVerification
                         prevStep={this.prevStep}
@@ -66,7 +75,7 @@ export default class Signup extends Component {
                         values={values}
                     />
                 )
-            case 4:
+            case 5:
                 return (
                     <UserDetails
                         prevStep={this.prevStep}
@@ -75,7 +84,7 @@ export default class Signup extends Component {
                         values={values}
                     />
                 )
-            case 5:
+            case 6:
                 return (
                     <UserDetailsConfirm
                         prevStep={this.prevStep}
@@ -84,7 +93,7 @@ export default class Signup extends Component {
                         values={values}
                     />
                 )
-            case 6:
+            case 7:
                 return (
                     <UserDeclaration 
                     prevStep={this.prevStep}

@@ -11,82 +11,45 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
         prevStep();
     }
     return (
-        <Container component="main" maxWidth="xs">
-            <div>
-                <Typography component="h1" variant="h5">
-                    Asociá tu DNI
-                </Typography>
-                <form>
-                    <Grid container spacing={2}>
-
-                        {/* first name */}
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                placeholder="First Name"
-                                label="First Name"
-                                onChange={handleChange('firstName')}
-                                defaultValue={values.firstName}
-                            />
-                        </Grid>
-                        {/* last name */}
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                placeholder="Last Name"
-                                label="Last Name"
-                                onChange={handleChange('lastName')}
-                                defaultValue={values.lastName}
-                            />
-                        </Grid>
-
-                        {/* country of residence */}
-                        <Grid item xs={12}>
-                            <TextField
-                                placeholder="Country of Residence"
-                                label="Country of Residence"
-                                onChange={handleChange('country')}
-                                defaultValue={values.country}
-                                autoComplete="country"
-                                fullWidth
-                            />
-                        </Grid>
-
-                        {/* level of education */}
-                        <Grid item xs={12}>
-                            <TextField
-                                placeholder="Level of Education"
-                                label="Level of Education"
-                                onChange={handleChange('levelOfEducation')}
-                                defaultValue={values.levelOfEducation}
-                                autoComplete="Level of Education"
-                                fullWidth
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Button
-                                onClick={Previous}
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                            >
-                                Atrás
+        <div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">
+            <form class="w-full bg-white rounded shadow-2xl p-8 m-4 md:max-w-sm md:mx-auto">
+                <Container component="main" maxWidth="xs">
+                    <div>
+                        <div class= "pt-6 pb-10">
+                            <p class="text-indigo-900 text-3xl text-center font-sans">Asociá tu DNI</p>
+                        </div>
+                        <div class= "pt-6 pb-5">
+                            <p class="text-indigo-800 text-2xl text-center font-sans">Queremos aseguarnos que nadie se haga pasar por vos</p>
+                        </div>
+                        <form class= "pt-5 pb-10">
+                            {/* email address */}                       
+                            <Grid item xs={12}>
+                                <TextField
+                                    label="DNI"
+                                    placeholder="11.111.111"
+                                    onChange={handleChange('dni')}
+                                    autoComplete="dni"
+                                    fullWidth
+                                />
+                                
+                            </Grid>
+                            <div class = "pt-24 flex flex-col">
+                            <div class="py-2">
+                            <Button onClick={Continue} type="submit" variant="contained" class="rounded-lg bg-indigo-500 hover:bg-indigo-400 px-10 text-white font-bold py-2"                            >
+                                    Siguiente
                             </Button>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Button
-                                onClick={Continue}
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                            >
-                                Siguiente
+                            </div>
+                            <div>
+                            <Button onClick={Previous} type="submit" variant="contained" class="rounded-lg bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
+                                    Volver
                             </Button>
-                        </Grid>
-                    </Grid>
-                </form>
-            </div>
-        </Container>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </Container>
+            </form>
+        </div>
     )
 }
 

@@ -8,65 +8,49 @@ const UserAccount = ({ nextStep, handleChange, values }) => {
         nextStep();
     }
     return (
-        <Container component="main" maxWidth="xs">
-            <div>
-                <Typography component="h1" variant="h5">
-                    Para iniciar tu registro
-                </Typography>
-                <form>
-                    <Grid container spacing={2}>
-                        {/* email address */}                       
-                        <Grid item xs={12}>
-                            <TextField
-                                //required
-                                placeholder="nombre@email.com.ar"
-                                label="Mail"
-                                onChange={handleChange('email')}
-                                defaultValue={values.email}
-                                // variant="outlined"
-                                autoComplete="email"
-                                fullWidth                                
-                                InputProps={{
-                                    startAdornment: (
-                                      <InputAdornment position="start">
-                                        <MailOutlineIcon />
-                                      </InputAdornment>
-                                    ),
-                                  }}
-                            />
-                            
-                        </Grid>
-                        <br />
-                        <br />
-                        {/* pin */}
-                        <Grid item xs={12}>
-                            <TextField
-                                required
-                                placeholder="Clave"
-                                label="Ej. 1234"
-                                onChange={handleChange('pin')}
-                                defaultValue={values.pin}
-                                // variant="outlined"
-                                autoComplete="pin"
-                                fullWidth
-                                type="password"
-                            />
-                        </Grid>
-                    </Grid>
-                    <br />
-                    <Button
-                        onClick={Continue}
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        
-                    >
-                        Siguiente
-                    </Button>
-                </form>
-            </div>
-        </Container>
+        <div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">
+            <form class="w-full bg-white rounded shadow-2xl p-8 m-4 md:max-w-sm md:mx-auto">
+                <Container component="main" maxWidth="xs">
+                    <div>
+                        <div class= "pt-6 pb-10">
+                            <p class="text-indigo-900 text-3xl text-center font-sans">Para iniciar tu registro</p>
+                        </div>
+                        <div class= "pt-6 pb-5">
+                            <p class="text-indigo-800 text-2xl text-center font-sans">Ingresá tu mail</p>
+                        </div>
+                        <form class= "pt-5 pb-10">
+                            {/* email address */}                       
+                            <Grid item xs={12}>
+                                <TextField
+                                    label="nombre@email.com.ar"
+                                    placeholder="nombre@email.com.ar"
+                                    onChange={handleChange('email')}
+                                    defaultValue={values.email}
+                                    autoComplete="email"
+                                    fullWidth                                
+                                    InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                            <MailOutlineIcon />
+                                            </InputAdornment>
+                                        ),
+                                        }}
+                                />
+                                
+                            </Grid>
+                            <div class = "pt-24">
+                                
+                                <div class="py-9">
+                                <Button onClick={Continue} type="submit" variant="contained" class="rounded-lg bg-indigo-400 hover:bg-indigo-300 px-10 text-white font-bold py-2"                            >
+                                    Siguiente
+                                </Button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </Container>
+            </form>
+        </div>
     )
 }
 
