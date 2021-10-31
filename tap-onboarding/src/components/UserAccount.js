@@ -30,7 +30,7 @@ const UserAccount = ({ nextStep, handleChange, values }) => {
 
     return (
         <div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">
-            <form class="w-full bg-white rounded shadow-2xl p-8 m-4 md:max-w-sm md:mx-auto">
+            <form class="w-full bg-white rounded shadow-2xl p-8 m-4 md:max-w-sm md:mx-auto h-auto">
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class= "pt-6 pb-10">
@@ -60,7 +60,7 @@ const UserAccount = ({ nextStep, handleChange, values }) => {
                                     
                                 />
                             <div class = "pt-24 py-14">
-                                <Button onClick={Continue} type="submit" variant="contained" class="rounded-lg bg-indigo-400 hover:bg-indigo-300 px-10 text-white font-bold py-2"                            >
+                                <Button onClick={Continue} type="submit" variant="contained" class="rounded-lg bg-indigo-400 hover:bg-indigo-300 px-9 text-white font-bold py-2"                            >
                                     Siguiente
                                 </Button>
                             </div>

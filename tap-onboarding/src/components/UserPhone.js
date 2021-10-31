@@ -42,25 +42,16 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                         <div class= "pt-6 pb-5">
                             <p class="text-indigo-800 text-1xl text-center font-sans">Lo necesitamos para enviarte un código de verificación</p>
                         </div>
-                        <form class= "pt-6 pb-10">               
-                            <Grid item xs={12} >
-                            <TextField
-                                error={errorBase}
-                                helperText={ayudaErrorBase}                             
-                                placeholder="Celular"
-                                label="Ej. 11 2345 6789"
-                                onChange={handleChange('phone')}
-                                defaultValue={values.phone}
-                                fullWidth
-                            />
-                        </Grid>
+                        <form class= "pt-6 pb-10">   
+                            <TextField error={errorBase} helperText={ayudaErrorBase} placeholder="Celular" label="Ej. 11 2345 6789"
+                                       onChange={handleChange('phone')} defaultValue={values.phone} fullWidth/>
                             <div class = "pt-16 flex flex-col">
-                            <div class="py-2">
-                            <Button onClick={Continue} type="submit" variant="contained" class="rounded-lg bg-indigo-500 hover:bg-indigo-400 px-10 text-white font-bold py-2"                            >
+                            <div class="pt-1 pb-2">
+                            <Button onClick={Continue} type="submit" variant="contained" class="rounded-lg bg-indigo-500 hover:bg-indigo-400 px-9 text-white font-bold py-2"                            >
                                     Siguiente
                             </Button>
                             </div>
-                            <div>
+                            <div class="pb-2">
                             <Button onClick={Previous} type="submit" variant="contained" class="rounded-lg bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
                                     Volver
                             </Button>

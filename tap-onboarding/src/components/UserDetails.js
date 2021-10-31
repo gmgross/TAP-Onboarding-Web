@@ -38,32 +38,19 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
                             <p class="text-indigo-800 text-1xl text-center font-sans">Queremos aseguarnos que nadie se haga pasar por vos</p>
                         </div>
                         <form class= "pt-5 pb-10">
-                            {/* email address */}                       
-                            <Grid item xs={12}>
-                                <TextField
-                                    type = "number"
-                                    error={errorBase}
-                                    helperText={ayudaErrorBase}
-                                    defaultValue={values.dni}
-                                    label="DNI"
-                                    placeholder="11.111.111"
-                                    onChange={handleChange('dni')}
-                                    autoComplete="dni"
-                                    fullWidth
-                                />
-                                
-                            </Grid>
-                            <div class = "pt-24 flex flex-col">
-                            <div class="py-2">
-                            <Button onClick={Continue} type="submit" variant="contained" class="rounded-lg bg-indigo-500 hover:bg-indigo-400 px-10 text-white font-bold py-2"                            >
-                                    Siguiente
-                            </Button>
-                            </div>
-                            <div>
-                            <Button onClick={Previous} type="submit" variant="contained" class="rounded-lg bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
-                                    Volver
-                            </Button>
-                            </div>
+                                <TextField error={errorBase} helperText={ayudaErrorBase} defaultValue={values.dni} label="DNI" placeholder="11.111.111"
+                                    onChange={handleChange('dni')} autoComplete="dni" fullWidth/>
+                            <div class = "pt-16 flex flex-col">
+                                <div class="pt-2 pb-2">
+                                    <Button onClick={Continue} type="submit" variant="contained" class="rounded-lg bg-indigo-500 hover:bg-indigo-400 px-9 text-white font-bold py-2"                            >
+                                            Siguiente
+                                    </Button>
+                                </div>
+                                <div class = "pb-2">
+                                    <Button onClick={Previous} type="submit" variant="contained" class="rounded-lg bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
+                                            Volver
+                                    </Button>
+                                </div>
                             </div>
                         </form>
                     </div>
