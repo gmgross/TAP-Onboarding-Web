@@ -1,6 +1,18 @@
 # TAP - Onboarding-Web
 Trabajo Final
----
+----
+
+Integrantes: German Martinez Gross, Jeronimo Mendivil, Santiago Fernandez, Iñaki Barnetche, Allan Malcolm
+
+-----
+
+OBJETIVO 
+
+Proveer una web app de registro online, para facilitar el primer contacto con la empresa. Esta web app debe mantener las funcionalidades que tiene la aplicación. 
+A su vez, se requiere también desarrollar la funcionalidad para realizar la verificación de identidad requerida para poder acceder a todas las funcionalidades que TAP presenta.
+Para esto, se requiere realizar una verificación mediante imágenes.
+
+----
 ALCANCE
 
 ONBOARDING
@@ -28,6 +40,10 @@ CREAR CUENTA
 Crear cuenta en base de datos TAP
 Enviar mail de confirmación
 
+
+
+
+
 En este punto se debe poder validar la identidad (3) o descargar la aplicación (4)
 
 
@@ -46,4 +62,4 @@ En celular  ir directo al store
 En pc link inteligente que te descarga al celular
 
 ---
-Integrantes: German Martinez Gross, Jeronimo Mendivil, Santiago Fernandez, Iñaki Barnetche, Allan Malcolm
+
