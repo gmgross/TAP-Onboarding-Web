@@ -37,22 +37,36 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class= "pt-6 pb-10">
-                            <p class="text-indigo-900 text-2xl text-center font-sans">Ingresá tu celular</p>
+                            <p class="text-indigo-900 text-2xl text-center  font-medium font-sans">Ingresá tu celular</p>
                         </div>
                         <div class= "pt-6 pb-5">
-                            <p class="text-indigo-800 text-1xl text-center font-sans">Lo necesitamos para enviarte un código de verificación</p>
+                            <p class="text-gray-500 text-1xl text-center font-sans">Lo necesitamos para enviarte un código de verificación</p>
                         </div>
                         <form class= "pt-6 pb-10">   
-                            <TextField error={errorBase} helperText={ayudaErrorBase} placeholder="Celular" label="Ej. 11 2345 6789"
-                                       onChange={handleChange('phone')} defaultValue={values.phone} fullWidth/>
+                            <TextField 
+                                error={errorBase} 
+                                helperText={ayudaErrorBase}
+                                id="textPhone"
+                                variant="outlined" 
+                                placeholder="Ej. 11 2345 6789" 
+                                label="Celular"
+                                onChange={handleChange('phone')}   
+                                defaultValue={values.phone} 
+                                fullWidth
+                            />
+                            
+                            <div class= "pt-6 pb-5">
+                            <p class="text-gray-400 text-xs text-left font-sans">EscribÍ tu celular con código de área sin cero ni 15</p>
+                        </div>
+
                             <div class = "pt-16 flex flex-col">
                             <div class="pt-1 pb-2">
-                            <Button onClick={Continue} type="submit" variant="contained" class="rounded-lg bg-indigo-500 hover:bg-indigo-400 px-9 text-white font-bold py-2"                            >
+                            <Button onClick={Continue} type="submit" variant="contained" class="rounded-full bg-indigo-500 hover:bg-indigo-400 px-9 text-white font-bold py-2"                            >
                                     Siguiente
                             </Button>
                             </div>
                             <div class="pb-2">
-                            <Button onClick={Previous} type="submit" variant="contained" class="rounded-lg bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
+                            <Button onClick={Previous} type="submit" variant="contained" class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
                                     Volver
                             </Button>
                             </div>

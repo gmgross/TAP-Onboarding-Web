@@ -32,22 +32,33 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class= "pt-6 pb-10">
-                            <p class="text-indigo-900 text-2xl text-center font-sans">Asociá tu DNI</p>
+                            <p class="text-indigo-900 text-2xl text-center font-medium font-sans">Asociá tu DNI</p>
                         </div>
                         <div class= "pt-6 pb-5">
-                            <p class="text-indigo-800 text-1xl text-center font-sans">Queremos aseguarnos que nadie se haga pasar por vos</p>
+                            <p class="text-gray-500 text-1xl text-center font-sans">Queremos aseguarnos que nadie se haga pasar por vos</p>
                         </div>
                         <form class= "pt-5 pb-10">
-                                <TextField error={errorBase} helperText={ayudaErrorBase} defaultValue={values.dni} label="DNI" placeholder="11.111.111"
-                                    onChange={handleChange('dni')} autoComplete="dni" fullWidth/>
+                                <TextField 
+                                    error={errorBase}  
+                                    helperText={ayudaErrorBase}
+                                    id="textDetails"
+                                    variant="outlined"  
+                                    placeholder="11.111.111"
+                                    label="DNI" 
+                                    defaultValue={values.dni} 
+                                    onChange={handleChange('dni')} 
+                                    autoComplete="dni" 
+                                    fullWidth
+                                />
+
                             <div class = "pt-16 flex flex-col">
                                 <div class="pt-2 pb-2">
-                                    <Button onClick={Continue} type="submit" variant="contained" class="rounded-lg bg-indigo-500 hover:bg-indigo-400 px-9 text-white font-bold py-2"                            >
+                                    <Button onClick={Continue} type="submit" variant="contained" class="rounded-full bg-indigo-500 hover:bg-indigo-400 px-9 text-white font-bold py-2"                            >
                                             Siguiente
                                     </Button>
                                 </div>
                                 <div class = "pb-2">
-                                    <Button onClick={Previous} type="submit" variant="contained" class="rounded-lg bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
+                                    <Button onClick={Previous} type="submit" variant="contained" class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
                                             Volver
                                     </Button>
                                 </div>
