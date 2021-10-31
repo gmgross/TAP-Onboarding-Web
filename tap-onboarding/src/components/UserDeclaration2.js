@@ -9,7 +9,7 @@ const UserDeclaration = ({ prevStep, handleChange, values, nextStep }) => {
     }
     const Continue = e => {
         e.preventDefault()
-        // nextStep();
+        nextStep();
     }
     return (
         <div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">

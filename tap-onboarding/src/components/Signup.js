@@ -4,6 +4,7 @@ import UserDeclaration1 from './UserDeclaration1';
 import UserDeclaration2 from './UserDeclaration2';
 import UserDetails from './UserDetails';
 import UserDetailsConfirm from './UserDetailsConfirm';
+import UserEnd from './UserEnd';
 import UserPhone from './UserPhone';
 import UserPhoneVerification from './UserPhoneVerification';
 import UserPassword from './UserPassword';
@@ -12,10 +13,15 @@ export default class Signup extends Component {
     state = {
         step: 1,
         email: '',
-        pin: '',
+        password:'', 
         phone: '',
-        dni:'',
-        password:''
+        oauth_token: '',
+        document_id:'', //document_id
+        check_peype:'',
+        first_name:'vacio',
+        last_name:'',
+        is_exposed_person:'',
+        is_uif_person:''        
     }
 
     // vuelve al paso anterior
@@ -37,8 +43,8 @@ export default class Signup extends Component {
 
     render() {
         const { step } = this.state;
-        const { email, pin, name, lastName,dni,phone } = this.state;
-        const values = { email, pin, name, lastName,dni,phone }
+        const { email, password, phone, oauth_token, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person } = this.state;
+        const values = { email, password, phone, oauth_token, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person}
 
         switch (step) {
             case 1:
@@ -107,10 +113,20 @@ export default class Signup extends Component {
                     return (
                         <UserDeclaration2
                         prevStep={this.prevStep}
+                        nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
                         />
                     )
+                
+                case 9:
+                    return (
+                        <UserEnd
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                        />
+                    )    
             default:
             // do nothing
         }
@@ -118,7 +134,7 @@ export default class Signup extends Component {
 
         return (
             <div>
-                <h1>Registrarse</h1>
+                <h1>Hola Mundo!</h1>
             </div>
         )
     }

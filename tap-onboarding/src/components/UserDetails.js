@@ -17,7 +17,7 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
         }
     }
     const verificacionBase = async() => {
-        var url = urlOriginalBase + values.dni;
+        var url = urlOriginalBase + values.document_id;
         const response = await fetch(url);
         const json = await response.json();
         dniExistente = json.exist;
@@ -43,11 +43,11 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
                                     helperText={ayudaErrorBase}
                                     id="textDetails"
                                     variant="outlined"  
-                                    placeholder="11.111.111"
+                                    placeholder="11111111"
                                     label="DNI" 
-                                    defaultValue={values.dni} 
-                                    onChange={handleChange('dni')} 
-                                    autoComplete="dni" 
+                                    defaultValue={values.document_id} 
+                                    onChange={handleChange('document_id')} 
+                                    autoComplete="document_id" 
                                     fullWidth
                                 />
 

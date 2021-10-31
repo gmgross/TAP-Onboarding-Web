@@ -24,7 +24,7 @@ const UserDetailsConfirm = ({ prevStep, nextStep, handleChange, values }) => {
                             <p class="text-indigo-900 text-2xl text-center font-medium font-sans">Confirmá tu nombre</p>
                         </div>
                         <div class= "pt-6 pb-5">
-                            <p class="text-gray-500 text-1xl text-center font-sans">DNI: {values.dni}</p>
+                            <p class="text-gray-500 text-1xl text-center font-sans">DNI: {values.document_id}</p>
                         </div>
                         <form class= "pt-5 pb-10 place-content-evenly">
                             <div class="flex items-center mt-1 flex rounded-md shadow-sm bg-indigo-200 px-3 place-content-evenly">
