@@ -37,7 +37,7 @@ const UserDeclaration = ({ prevStep, nextStep, handleChange, values }) => {
                                 <input id="push-expuesta2" name="push-expuesta" type="radio" class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300"/>
                             </div>     
                             <div class = "pt-16 flex flex-col">
-                                <div class="pt- pb-2">
+                                <div class="pt-3 pb-2">
                                     <Button onClick={Continue} type="submit" variant="contained" class="rounded-full bg-indigo-500 hover:bg-indigo-400 px-9 text-white font-bold py-2"                            >
                                             Siguiente
                                     </Button>

@@ -55,12 +55,12 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                                 fullWidth
                             />
                             
-                            <div class= "pt-6 pb-5">
+                            <div class= "pt-6 pb-2">
                             <p class="text-gray-400 text-xs text-left font-sans">EscribÍ tu celular con código de área sin cero ni 15</p>
                         </div>
 
-                            <div class = "pt-16 flex flex-col">
-                            <div class="pt-1 pb-2">
+                            <div class = "pt-3 flex flex-col">
+                            <div class="pt-2 pb-2">
                             <Button onClick={Continue} type="submit" variant="contained" class="rounded-full bg-indigo-500 hover:bg-indigo-400 px-9 text-white font-bold py-2"                            >
                                     Siguiente
                             </Button>

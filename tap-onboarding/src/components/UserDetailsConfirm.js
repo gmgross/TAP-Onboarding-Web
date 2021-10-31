@@ -34,7 +34,7 @@ const UserDetailsConfirm = ({ prevStep, nextStep, handleChange, values }) => {
                                 <input id="push-name1" name="push-names" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"/>
                             </div>
                             <div class = "pt-20 flex flex-col">
-                                <div class="pt-9 pb-2">
+                                <div class="pt-12 pb-2">
                                     <Button onClick={Continue} type="submit" variant="contained" class="rounded-full bg-indigo-500 hover:bg-indigo-400 px-9 text-white font-bold py-2"                            >
                                             Siguiente
                                     </Button>
