@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
 import { Container, Typography, Grid, TextField, Button, InputAdornment, InputLabel, Input } from '@material-ui/core'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
-const UserAccount = ({ nextStep, handleChange, values }) => {
+
+
+
+const UserMail = ({ nextStep, handleChange, values }) => {
     const urlOriginal = 'https://api.qa.auntap.io/public/check_user?email[equals]=' 
     const [errorMail, setErrorMail] = useState(false);
     const [ayudaError, setAyudaError] = useState('');
@@ -75,4 +78,4 @@ const UserAccount = ({ nextStep, handleChange, values }) => {
     )
 }
 
-export default UserAccount
+export default UserMail

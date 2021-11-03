@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
-import UserAccount from './UserAccount';
-import UserDeclaration1 from './UserDeclaration1';
-import UserDeclaration2 from './UserDeclaration2';
+import UserMail from './UserMail';
+import UserDeclarationExp from './UserDeclarationExp';
+import UserDeclarationUif from './UserDeclarationUif';
 import UserDetails from './UserDetails';
 import UserDetailsConfirm from './UserDetailsConfirm';
 import UserEnd from './UserEnd';
 import UserPhone from './UserPhone';
 import UserPhoneVerification from './UserPhoneVerification';
 import UserPassword from './UserPassword';
-export default class Signup extends Component {
+import UserPasswordConfirm from './UserPasswordConfirm';
+export default class Nav extends Component {
 
     state = {
         step: 1,
@@ -49,14 +50,14 @@ export default class Signup extends Component {
         switch (step) {
             case 1:
                 return (
-                    <UserAccount
+                    <UserMail
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
                     />
                 )
-                case 2:
-                    return (
+            case 2:
+                return (
                         <UserPassword
                             prevStep={this.prevStep}
                             nextStep={this.nextStep}
@@ -66,16 +67,16 @@ export default class Signup extends Component {
                     )
             case 3:
                 return (
-                    <UserPhone
-                        prevStep={this.prevStep}
-                        nextStep={this.nextStep}
-                        handleChange={this.handleChange}
-                        values={values}
-                    />
-                )
+                    <UserPasswordConfirm
+                            prevStep={this.prevStep}
+                            nextStep={this.nextStep}
+                            handleChange={this.handleChange}
+                            values={values}
+                         />
+                        )    
             case 4:
                 return (
-                    <UserPhoneVerification
+                    <UserPhone
                         prevStep={this.prevStep}
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
@@ -84,7 +85,7 @@ export default class Signup extends Component {
                 )
             case 5:
                 return (
-                    <UserDetails
+                    <UserPhoneVerification
                         prevStep={this.prevStep}
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
@@ -93,7 +94,7 @@ export default class Signup extends Component {
                 )
             case 6:
                 return (
-                    <UserDetailsConfirm
+                    <UserDetails
                         prevStep={this.prevStep}
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
@@ -102,31 +103,40 @@ export default class Signup extends Component {
                 )
             case 7:
                 return (
-                    <UserDeclaration1 
-                    prevStep={this.prevStep}
-                    nextStep={this.nextStep}
-                    handleChange={this.handleChange}
-                    values={values}
-                    />
-                )
-                case 8:
-                    return (
-                        <UserDeclaration2
+                    <UserDetailsConfirm
                         prevStep={this.prevStep}
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
-                        />
-                    )
+                    />
+                )
+            case 8:
+                return (
+                    <UserDeclarationExp 
+                        prevStep={this.prevStep}
+                        nextStep={this.nextStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                )
+            case 9:
+                return (
+                    <UserDeclarationUif
+                        prevStep={this.prevStep}
+                        nextStep={this.nextStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                )
                 
-                case 9:
-                    return (
-                        <UserEnd
+            case 10:
+                return (
+                    <UserEnd
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
                         values={values}
-                        />
-                    )    
+                    />
+                )    
             default:
             // do nothing
         }

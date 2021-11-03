@@ -1,12 +1,12 @@
 import React , {useEffect, useState} from "react"
 import logo from './logo.svg';
 import './App.css';
-import Signup from "./components/Signup";
+import Nav from "./components/Nav";
 
 function App() {
     return(
     <div className="App">
-      <Signup />
+      <Nav />
     </div>
   );
 }
