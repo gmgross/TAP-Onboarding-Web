@@ -9,7 +9,7 @@ import UserPhone from './UserPhone';
 import UserPhoneVerification from './UserPhoneVerification';
 import UserPassword from './UserPassword';
 import UserPasswordConfirm from './UserPasswordConfirm';
-export default class Nav extends Component {
+export default class UserForm extends Component {
 
     state = {
         step: 1,
@@ -58,22 +58,22 @@ export default class Nav extends Component {
                 )
             case 2:
                 return (
-                        <UserPassword
-                            prevStep={this.prevStep}
-                            nextStep={this.nextStep}
-                            handleChange={this.handleChange}
-                            values={values}
-                        />
-                    )
+                    <UserPassword
+                        prevStep={this.prevStep}
+                        nextStep={this.nextStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                )
             case 3:
                 return (
                     <UserPasswordConfirm
-                            prevStep={this.prevStep}
-                            nextStep={this.nextStep}
-                            handleChange={this.handleChange}
-                            values={values}
-                         />
-                        )    
+                        prevStep={this.prevStep}
+                        nextStep={this.nextStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                     />
+                )    
             case 4:
                 return (
                     <UserPhone

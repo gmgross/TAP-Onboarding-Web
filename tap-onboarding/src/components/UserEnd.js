@@ -9,7 +9,7 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
 
     const Continue = e => {
         e.preventDefault();
-        nextStep();
+        //nextStep();
     }
     const Previous = e => {
         e.preventDefault();
@@ -22,7 +22,7 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                     <div>
 
                         <div class= "pt-2 pb-4">
-                            <p class="text-indigo-900 text-2xl text-center font-medium font-sans">¡ Felicitaciones, {values.first_name } !</p>
+                            <p class="text-indigo-900 text-2xl text-center font-medium font-sans">¡ Felicitaciones, {values.first_name} !</p>
                             <p class="text-indigo-900 text-2xl text-center font-medium font-sans">Ya tenes tu cuenta</p>
                         </div>
 
@@ -40,17 +40,31 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                             
                             <div class = "pt-2 flex flex-col">
                                 <div class="py-2 pt-4">
-                                    <Button onClick={Previous} type="submit" variant="contained" class="rounded-full bg-indigo-500 hover:bg-indigo-400 px-9 text-white font-bold py-2"                            >
+                                    <Button 
+                                    onClick={Continue} 
+                                    type="submit" 
+                                    variant="contained" 
+                                    class="rounded-full bg-gray-500 hover:bg-indigo-400 px-9 text-white font-bold py-2">
                                         Validar identidad
                                     </Button>
                                 </div>
+
                                 <div class="py-2 pt-4">
-                                    <Button onClick={Previous} type="submit" variant="contained" class="rounded-full bg-indigo-500 hover:bg-indigo-400 px-9 text-white font-bold py-2"                            >
-                                        Descargar la App
+                                    <Button 
+                                        onClick={Continue} 
+                                        type="submit" 
+                                        variant="contained" 
+                                        class=" rounded shadow rounded-full bg-gray-500 hover:bg-indigo-400 px-9 text-white font-bold py-2">
+                                            Descargar la App
                                     </Button>
                                 </div>
+
                                 <div class="pb-2 pt-4">
-                                    <Button onClick={Previous} type="submit" variant="contained" class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
+                                    <Button 
+                                        onClick={Previous} 
+                                        type="submit" 
+                                        variant="contained" 
+                                        class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2">
                                             Volver
                                     </Button>
                                 </div>
