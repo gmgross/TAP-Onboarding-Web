@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Container, Typography, Grid, TextField, Button, InputAdornment, InputLabel, Input } from '@material-ui/core'
+import {Modal, Container, Typography, Grid, TextField, Button, InputAdornment, InputLabel, Input } from '@material-ui/core'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 
@@ -10,6 +10,47 @@ const UserMail = ({ nextStep, handleChange, values }) => {
     const [ayudaError, setAyudaError] = useState('');
     var mailExistente=1;
 
+
+    const [modal, setModal] = useState (false)
+
+    const openCloseModal = () => {
+        setModal(!modal);
+    }
+
+    const body =(
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+	        <div class="mt-3 text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                    <svg
+                        class="h-6 w-6 text-green-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 13l4 4L19 7"
+                        ></path>
+                    </svg>
+                </div>
+                <p class="text-indigo-900 text-2xl text-center font-medium font-sans">Mail ya registrado</p>
+                <div class="mt-2 px-7 py-3">
+                    <p class="text-sm text-gray-500">Por favor, use otro mail para registrarse</p>
+                </div>
+                <div class="items-center px-4 py-3">
+                    <Button onClick={openCloseModal} type="submit" variant="contained" class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
+                        Aceptar
+                    </Button>
+                </div>
+	        </div>
+        </div>
+    )
+
+
+
     const Continue = async(e) => {
         e.preventDefault();
         await verificacionMail()
@@ -18,8 +59,9 @@ const UserMail = ({ nextStep, handleChange, values }) => {
             nextStep();
         }else{
             e.preventDefault();
-            setErrorMail(true);
-            setAyudaError("El mail ya esta asociado a un usuario existente")
+            openCloseModal();
+            /* setErrorMail(true);
+            setAyudaError("El mail ya esta asociado a un usuario existente") */
         };
        
     }
@@ -72,9 +114,20 @@ const UserMail = ({ nextStep, handleChange, values }) => {
                     </div>
                 </Container>
             </form>
+
+            <div>
+            {/* <Button onClick={openCloseModal}>Open modal</Button> */}
+            <Modal
+                open={modal}
+                onClose={openCloseModal}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                {body}
+
+            </Modal>
+            </div>    
         </div>
-
-
     )
 }
 
