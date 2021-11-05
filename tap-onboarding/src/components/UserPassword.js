@@ -64,8 +64,8 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                                     label="Clave"
                                     placeholder="1234"
                                     onChange={handleChange('password')}
-                                    defaultValue={values.password}
-                                    autoComplete="password"
+                                    //defaultValue={values.password}
+                                    //autoComplete="password"
                                     fullWidth
                                 />
                                 

@@ -1,12 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Container, Typography, Grid, TextField, Button, InputAdornment, InputLabel, Input } from '@material-ui/core'
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import { width } from '@mui/system';
-const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
 
+const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
+    const [error, setError] = useState(false);
+    const [helper, setHelper] = useState('');
+    
+    function confirmPassword() {
+        let result = true;
+      
+        if (values.password !== values.confirmPassword) {
+            setError(true);
+            setHelper("La clave no concide");
+            result = false;
+        } 
+        return result;
+      }
+    
     const Continue = e => {
         e.preventDefault();
-        nextStep();
+        confirmPassword();
+        if(confirmPassword()){
+            nextStep();
+        }
     }
     const Previous = e => {
         e.preventDefault();
@@ -27,13 +42,15 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                                                 
                             <Grid item xs={12}>
                                 <TextField
+                                    error={error}
+                                    helperText={helper}
                                     id="textPassword"
                                     variant="outlined"
                                     label="Clave"
                                     placeholder="1234"
-                                    onChange={handleChange('password')}
-                                    defaultValue={values.password}
-                                    autoComplete="password"
+                                    onChange={handleChange('confirmPassword')}
+                                    //defaultValue={values.confirmPassword}
+                                    //autoComplete="confirmPassword"
                                     fullWidth
                                 />
                                 

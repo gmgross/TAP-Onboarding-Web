@@ -14,10 +14,11 @@ export default class UserForm extends Component {
     state = {
         step: 1,
         email: '',
-        password:'', 
+        password:'',
+        confirmPassword: '', 
         phone: '',
         oauth_token: '',
-        document_id:'', //document_id
+        document_id:'',
         check_peype:'',
         first_name:'vacio',
         last_name:'',
@@ -44,8 +45,8 @@ export default class UserForm extends Component {
 
     render() {
         const { step } = this.state;
-        const { email, password, phone, oauth_token, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person } = this.state;
-        const values = { email, password, phone, oauth_token, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person}
+        const { email, password, confirmPassword, phone, oauth_token, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person } = this.state;
+        const values = { email, password, confirmPassword, phone, oauth_token, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person}
 
         switch (step) {
             case 1:
