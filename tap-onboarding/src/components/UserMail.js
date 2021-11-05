@@ -6,27 +6,53 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 const UserMail = ({ nextStep, handleChange, values }) => {
     const urlOriginal = 'https://api.qa.auntap.io/public/check_user?email[equals]=' 
-    const [errorMail, setErrorMail] = useState(false);
-    const [ayudaError, setAyudaError] = useState('');
     var mailExistente=1;
 
 
-    const Continue = async(e) => {
-        e.preventDefault();
+    const [error, setError] = useState(false);
+    const [helper, setHelper] = useState('');
+    
+    function validateMail() {
+        let result = true;
+      
+        if (!values.email) {
+            setError(true);
+            setHelper("Por favor, completa tu mail");
+            result = false;
         
-        await verificacionMail()
-        if (mailExistente == false ) { 
-            e.preventDefault();
-            nextStep();
-        }else{
-            e.preventDefault();
-            openCloseModal();
-            /* setErrorMail(true);
-            setAyudaError("El mail ya esta asociado a un usuario existente") */
-        };
+        } else {
+          var pattern = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/); 
+          result = pattern.test(values.email);
+      
+          if (!result) {
+            setError(true);
+            setHelper("Direccion de mail invalida.");
+            result = false;
+          } 
+        } 
+        return result;
+      }
+
+      const Continue = async(e) => {
+        e.preventDefault();
+        validateMail();
+        if(validateMail()){
+            await mailExistDb()
+            if (mailExistente == false ) { 
+                e.preventDefault();
+                nextStep();
+            }else{
+                e.preventDefault();
+                openCloseModal();
+               
+            };
+        }
+        
+        
        
-    }
-    const verificacionMail = async() => {
+    }  
+ 
+    const mailExistDb = async() => {
         var url = urlOriginal + values.email;
         const response = await fetch(url);
         const json = await response.json();
@@ -77,8 +103,8 @@ const UserMail = ({ nextStep, handleChange, values }) => {
                         </div>
                         <form class= "pt-5 pb-10">  
                                 <TextField
-                                    error={errorMail}
-                                    helperText={ayudaError}
+                                    error={error}
+                                    helperText={helper}
                                     id="textMail"
                                     variant="outlined"
                                     label="Email"
