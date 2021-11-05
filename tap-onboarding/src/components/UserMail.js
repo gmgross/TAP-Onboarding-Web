@@ -11,48 +11,9 @@ const UserMail = ({ nextStep, handleChange, values }) => {
     var mailExistente=1;
 
 
-    const [modal, setModal] = useState (false)
-
-    const openCloseModal = () => {
-        setModal(!modal);
-    }
-
-    const body =(
-        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-	        <div class="mt-3 text-center">
-                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
-                    <svg
-                        class="h-6 w-6 text-green-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M5 13l4 4L19 7"
-                        ></path>
-                    </svg>
-                </div>
-                <p class="text-indigo-900 text-2xl text-center font-medium font-sans">Mail ya registrado</p>
-                <div class="mt-2 px-7 py-3">
-                    <p class="text-sm text-gray-500">Por favor, use otro mail para registrarse</p>
-                </div>
-                <div class="items-center px-4 py-3">
-                    <Button onClick={openCloseModal} type="submit" variant="contained" class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
-                        Aceptar
-                    </Button>
-                </div>
-	        </div>
-        </div>
-    )
-
-
-
     const Continue = async(e) => {
         e.preventDefault();
+        
         await verificacionMail()
         if (mailExistente == false ) { 
             e.preventDefault();
@@ -71,7 +32,37 @@ const UserMail = ({ nextStep, handleChange, values }) => {
         const json = await response.json();
         mailExistente = json.exist;
     }
-    
+
+
+    const [modal, setModal] = useState (false)
+
+    const openCloseModal = () => {
+        setModal(!modal);
+    }
+
+    const body =(
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+	        <div class="mt-3 text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
+                   
+                <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+
+                </div>
+                <p class="text-indigo-900 text-2xl text-center font-medium font-sans">Mail ya registrado</p>
+                <div class="mt-2 px-7 py-3">
+                    <p class="text-sm text-gray-500">Por favor, use otro mail para registrarse</p>
+                </div>
+                <div class="items-center px-4 py-3">
+                    <Button onClick={openCloseModal} type="submit" variant="contained" class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
+                        Aceptar
+                    </Button>
+                </div>
+	        </div>
+        </div>
+    )
+  
 
     return (
         <div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">
@@ -115,17 +106,14 @@ const UserMail = ({ nextStep, handleChange, values }) => {
                 </Container>
             </form>
 
-            <div>
-            {/* <Button onClick={openCloseModal}>Open modal</Button> */}
-            <Modal
-                open={modal}
-                onClose={openCloseModal}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                {body}
+            <div> 
+                <Modal
+                    open={modal}
+                    onClose={openCloseModal}
+                    >
+                        {body}
 
-            </Modal>
+                </Modal>
             </div>    
         </div>
     )
