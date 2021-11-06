@@ -1,26 +1,53 @@
 import React, {useState} from 'react'
-import { Container, Typography, Grid, TextField, Button } from '@material-ui/core'
+import { Modal, Container, Typography, Grid, TextField, Button } from '@material-ui/core'
+import MyModal from './MyModal';
 
-const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
+const UserPhone = ({ prevStep, nextStep, handleChange, values, isModal, toggleModal }) => {
     const urlOriginalBase = 'https://api.qa.auntap.io/public/check_user?phone[equals]=' 
-    const [errorBase, setErrorBase] = useState(false);
-    const [ayudaErrorBase, setAyudaErrorBase] = useState('');
     var telefonoExistente;
 
-    const Continue = async(e) => {
-        e.preventDefault();
-        await verificacionBase()
-        if(telefonoExistente == false){
-            nextStep();
-        } else{
-            e.preventDefault();
-            setErrorBase(true);
-            setAyudaErrorBase("El telefono ya esta asociado a un usuario existente")
-        }
+    const [error, setError] = useState(false);
+    const [helper, setHelper] = useState('');
+
+    function validatePhone() {
+        let result = true;
+      
+        if (!values.phone) {
+            setError(true);
+            setHelper("Por favor, completa tu número de celular");
+            result = false;
         
+        } else {
+          var pattern = new RegExp(/^([0-9]{10})$/); 
+          result = pattern.test(values.phone);
+      
+          if (!result) {
+            setError(true);
+            setHelper("Número de celular invalido.");
+            result = false;
+          } 
+        } 
+        return result;
+      }
+
+
+      const Continue = async(e) => {
+        e.preventDefault();
+        validatePhone();
+        if(validatePhone()){
+            await phoneExistDb()
+            if (telefonoExistente == false ) { 
+                e.preventDefault();
+                nextStep();
+            }else{
+                e.preventDefault();
+                toggleModal();
+            };
+        }
     }
 
-    const verificacionBase = async() => {
+
+    const phoneExistDb = async() => {
         var url = urlOriginalBase + values.phone;
         const response = await fetch(url);
         const json = await response.json();
@@ -44,11 +71,11 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                         </div>
                         <form class= "pt-6 pb-10">   
                             <TextField 
-                                error={errorBase} 
-                                helperText={ayudaErrorBase}
+                                error={error}
+                                helperText={helper}
                                 id="textPhone"
                                 variant="outlined" 
-                                placeholder="Ej. 11 2345 6789" 
+                                placeholder="11 2345 6789" 
                                 label="Celular"
                                 onChange={handleChange('phone')}   
                                 defaultValue={values.phone} 
@@ -75,6 +102,11 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                     </div>
                 </Container>
             </form>
+            <Modal open={isModal} onClose={toggleModal} >
+                <MyModal title={'Télefono'} body={'número'}>
+                </MyModal>
+            </Modal> 
+
         </div>
     )
 }
