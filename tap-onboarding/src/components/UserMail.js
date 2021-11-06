@@ -43,7 +43,7 @@ const UserMail = ({ nextStep, handleChange, values }) => {
                 nextStep();
             }else{
                 e.preventDefault();
-                openCloseModal();
+                toggleModal();
                
             };
         }
@@ -62,7 +62,7 @@ const UserMail = ({ nextStep, handleChange, values }) => {
 
     const [modal, setModal] = useState (false)
 
-    const openCloseModal = () => {
+    const toggleModal = () => {
         setModal(!modal);
     }
 
@@ -81,7 +81,7 @@ const UserMail = ({ nextStep, handleChange, values }) => {
                     <p class="text-sm text-gray-500">Por favor, use otro mail para registrarse</p>
                 </div>
                 <div class="items-center px-4 py-3">
-                    <Button onClick={openCloseModal} type="submit" variant="contained" class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
+                    <Button onClick={toggleModal} type="submit" variant="contained" class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
                         Aceptar
                     </Button>
                 </div>
@@ -135,7 +135,7 @@ const UserMail = ({ nextStep, handleChange, values }) => {
             <div> 
                 <Modal
                     open={modal}
-                    onClose={openCloseModal}
+                    onClose={toggleModal}
                     >
                         {body}
 

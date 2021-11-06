@@ -1,8 +1,6 @@
 import React from 'react'
 import { Container, Typography, Grid, TextField, Button, InputAdornment, InputLabel, Input } from '@material-ui/core'
-import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
-import { indigo } from '@mui/material/colors';
-import { green } from '@mui/material/colors';
+
 
 
 const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
@@ -26,9 +24,10 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                             <p class="text-indigo-900 text-2xl text-center font-medium font-sans">Ya tenes tu cuenta</p>
                         </div>
 
-                        <div class= "pt-2 pb-10">
-                           imagen
-                            
+                        <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-green-100">
+                            <svg class="h-10 w-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
                         </div>
                             
                         <div class= "pt-2 pb-2">
@@ -44,7 +43,7 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                                     onClick={Continue} 
                                     type="submit" 
                                     variant="contained" 
-                                    class="rounded-full bg-gray-500 hover:bg-indigo-400 px-9 text-white font-bold py-2">
+                                    class="rounded-full bg-gray-300 hover:bg-gray-00 px-9 text-white font-bold py-2">
                                         Validar identidad
                                     </Button>
                                 </div>
@@ -54,7 +53,7 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                                         onClick={Continue} 
                                         type="submit" 
                                         variant="contained" 
-                                        class=" rounded shadow rounded-full bg-gray-500 hover:bg-indigo-400 px-9 text-white font-bold py-2">
+                                        class=" rounded shadow rounded-full bg-gray-300 hover:bg-gray-00 px-9 text-white font-bold py-2">
                                             Descargar la App
                                     </Button>
                                 </div>
