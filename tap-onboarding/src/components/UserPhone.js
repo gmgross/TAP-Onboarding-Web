@@ -21,17 +21,17 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values, isModal, toggleMo
           var pattern = new RegExp(/^([0-9]{10})$/); 
           result = pattern.test(values.phone);
       
-          if (!result) {
-            setError(true);
-            setHelper("Número de celular invalido.");
-            result = false;
-          } 
+            if (!result) {
+                setError(true);
+                setHelper("Número de celular invalido.");
+                result = false;
+            } 
         } 
         return result;
-      }
+    }
 
 
-      const Continue = async(e) => {
+    const Continue = async(e) => {
         e.preventDefault();
         validatePhone();
         if(validatePhone()){
@@ -75,7 +75,7 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values, isModal, toggleMo
                                 helperText={helper}
                                 id="textPhone"
                                 variant="outlined" 
-                                placeholder="11 2345 6789" 
+                                placeholder="112345 6789" 
                                 label="Celular"
                                 onChange={handleChange('phone')}   
                                 defaultValue={values.phone} 
@@ -103,7 +103,7 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values, isModal, toggleMo
                 </Container>
             </form>
             <Modal open={isModal} onClose={toggleModal} >
-                <MyModal title={'Télefono'} body={'número'}>
+                <MyModal title={'Celular ya registrado'} body={'Por favor, use otro número para registrarse'}>
                 </MyModal>
             </Modal> 
 

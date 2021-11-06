@@ -1,22 +1,53 @@
 import React,{useState} from 'react'
-import { Container, Typography, Grid, TextField, Button } from '@material-ui/core'
-const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
+import { Modal, Container, Typography, Grid, TextField, Button } from '@material-ui/core'
+import MyModal from './MyModal';
+
+const UserDetails = ({ prevStep, nextStep, handleChange, values, isModal, toggleModal }) => {
     const urlOriginalBase = 'https://api.qa.auntap.io/public/check_user?document_id[equals]=' 
-    const [errorBase, setErrorBase] = useState(false);
-    const [ayudaErrorBase, setAyudaErrorBase] = useState('');
     var dniExistente;
+    
+    const [error, setError] = useState(false);
+    const [helper, setHelper] = useState('');
+    
+    function validateDocument_id() {
+        let result = true;
+      
+        if (!values.document_id) {
+            setError(true);
+            setHelper("Por favor, completa tu número de DNI");
+            result = false;
+        
+        } else {
+          var pattern = new RegExp(/^([0-9]{6,8})$/); 
+          result = pattern.test(values.document_id);
+      
+            if (!result) {
+                setError(true);
+                setHelper("Número de DNI invalido.");
+                result = false;
+            } 
+        } 
+        return result;
+    }
+    
+    
+    
     const Continue = async(e) => {
         e.preventDefault();
-        await verificacionBase()
-        if(dniExistente == false){
-            nextStep();
-        } else{
-            e.preventDefault();
-            setErrorBase(true);
-            setAyudaErrorBase("El DNI ya esta asociado a un usuario existente")
+        validateDocument_id();
+        if(validateDocument_id()){
+            await document_idExistDb()
+            if (dniExistente == false ) { 
+                e.preventDefault();
+                nextStep();
+            }else{
+                e.preventDefault();
+                toggleModal();
+            };
         }
     }
-    const verificacionBase = async() => {
+    
+    const document_idExistDb = async() => {
         var url = urlOriginalBase + values.document_id;
         const response = await fetch(url);
         const json = await response.json();
@@ -39,8 +70,8 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
                         </div>
                         <form class= "pt-5 pb-10">
                                 <TextField 
-                                    error={errorBase}  
-                                    helperText={ayudaErrorBase}
+                                    error={error}
+                                    helperText={helper}
                                     id="textDetails"
                                     variant="outlined"  
                                     placeholder="11111111"
@@ -64,6 +95,10 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
                                 </div>
                             </div>
                         </form>
+                        <Modal open={isModal} onClose={toggleModal} >
+                            <MyModal title={'El DNI ya esta asociado a un usuario existente'} body={''}>
+                            </MyModal>
+                        </Modal> 
                     </div>
                 </Container>
             </form>

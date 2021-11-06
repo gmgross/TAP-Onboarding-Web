@@ -98,7 +98,7 @@ const UserMail = ({ nextStep, handleChange, values, isModal, toggleModal }) => {
                 </Container>
             </form>
             <Modal open={isModal} onClose={toggleModal} >
-                <MyModal title={'Mail'} body={'mail'}>
+                <MyModal title={'Mail ya registrado'} body={'Por favor, use otro mail para registrarse'}>
                 </MyModal>
             </Modal> 
 

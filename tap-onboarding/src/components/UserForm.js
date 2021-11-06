@@ -112,6 +112,8 @@ export default class UserForm extends Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
+                        isModal={isModal}
+                        toggleModal={this.toggleModal}
                     />
                 )
             case 7:
