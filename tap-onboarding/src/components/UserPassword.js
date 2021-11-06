@@ -14,7 +14,7 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
             result = false;
         
         } else {
-          var pattern = new RegExp(/^([0-9]{4}|[0-9]{6})$/); 
+          var pattern = new RegExp(/^([0-9]{4})$/); 
           result = pattern.test(values.password);
       
           if (!result) {
