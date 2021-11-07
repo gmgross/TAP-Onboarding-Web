@@ -1,16 +1,18 @@
 import React, {useState} from 'react'
-import {Modal, Container, Typography, Grid, TextField, Button, InputAdornment, InputLabel, Input } from '@material-ui/core'
+import {Modal, Container, TextField, Button, InputAdornment} from '@material-ui/core'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import MyModal from './MyModal';
 
 
 
-const UserMail = ({ nextStep, handleChange, values, isModal, toggleModal }) => {
+const UserMail = ({ nextStep, handleChange, values }) => {
     const urlOriginal = 'https://api.qa.auntap.io/public/check_user?email[equals]=' 
     var mailExistente=1;
 
     const [error, setError] = useState(false);
     const [helper, setHelper] = useState('');
+
+    const [openModal, setOpenModal] = useState(false);
     
     function validateMail() {
         let result = true;
@@ -21,7 +23,7 @@ const UserMail = ({ nextStep, handleChange, values, isModal, toggleModal }) => {
             result = false;
         
         } else {
-          var pattern = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/); 
+          var pattern = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()\\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/); 
           result = pattern.test(values.email);
       
           if (!result) {
@@ -38,12 +40,12 @@ const UserMail = ({ nextStep, handleChange, values, isModal, toggleModal }) => {
         validateMail();
         if(validateMail()){
             await mailExistDb()
-            if (mailExistente == false ) { 
+            if (mailExistente === false ) { 
                 e.preventDefault();
                 nextStep();
             }else{
                 e.preventDefault();
-                toggleModal();
+                setOpenModal(true);
             };
         }
     }
@@ -97,11 +99,10 @@ const UserMail = ({ nextStep, handleChange, values, isModal, toggleModal }) => {
                     </div>
                 </Container>
             </form>
-            <Modal open={isModal} onClose={toggleModal} >
-                <MyModal title={'Mail ya registrado'} body={'Por favor, use otro mail para registrarse'}>
-                </MyModal>
-            </Modal> 
-
+            
+            <Modal open={openModal} >
+                <MyModal closeModal={setOpenModal} title={'Mail ya registrado'} body={'Por favor, use otro mail para registrarse'} />
+            </Modal>
         </div>
     )
 }

@@ -1,8 +1,8 @@
-import React,{useState} from 'react'
-import { Modal, Container, Typography, Grid, TextField, Button } from '@material-ui/core'
+import React from 'react'
+import { Button } from '@material-ui/core'
 
 
-const MyModal = ({ isModal, toggleModal, title, body }) => {
+const MyModal = ({ closeModal, title, body }) => {
 
     return (
         
@@ -19,7 +19,7 @@ const MyModal = ({ isModal, toggleModal, title, body }) => {
                         <p class="text-sm text-gray-500">{body}</p>
                     </div>
                     <div class="items-center px-4 py-3">
-                        <Button onClick={toggleModal} type="submit" variant="contained" class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
+                        <Button onClick={(() => closeModal(false))} type="submit" variant="contained" class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
                             Aceptar
                         </Button>
                     </div>

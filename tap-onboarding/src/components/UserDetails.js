@@ -1,13 +1,15 @@
 import React,{useState} from 'react'
-import { Modal, Container, Typography, Grid, TextField, Button } from '@material-ui/core'
+import { Modal, Container, TextField, Button } from '@material-ui/core'
 import MyModal from './MyModal';
 
-const UserDetails = ({ prevStep, nextStep, handleChange, values, isModal, toggleModal }) => {
+const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
     const urlOriginalBase = 'https://api.qa.auntap.io/public/check_user?document_id[equals]=' 
     var dniExistente;
     
     const [error, setError] = useState(false);
     const [helper, setHelper] = useState('');
+
+    const [openModal, setOpenModal] = useState(false);
     
     function validateDocument_id() {
         let result = true;
@@ -37,12 +39,12 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values, isModal, toggle
         validateDocument_id();
         if(validateDocument_id()){
             await document_idExistDb()
-            if (dniExistente == false ) { 
+            if (dniExistente === false ) { 
                 e.preventDefault();
                 nextStep();
             }else{
                 e.preventDefault();
-                toggleModal();
+                setOpenModal(true);
             };
         }
     }
@@ -95,10 +97,10 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values, isModal, toggle
                                 </div>
                             </div>
                         </form>
-                        <Modal open={isModal} onClose={toggleModal} >
-                            <MyModal title={'El DNI ya esta asociado a un usuario existente'} body={''}>
-                            </MyModal>
+                        <Modal open={openModal}  >
+                            <MyModal closeModal={setOpenModal} title={'El DNI ya esta asociado a un usuario existente'} body={''} />
                         </Modal> 
+                        
                     </div>
                 </Container>
             </form>

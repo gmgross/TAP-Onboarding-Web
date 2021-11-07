@@ -12,8 +12,7 @@ import UserPasswordConfirm from './UserPasswordConfirm';
 export default class UserForm extends Component {
 
     state = {
-        step: 1,
-        isModal: false,
+        step: 6,
         email: '',
         password:'',
         confirmPassword: '', 
@@ -44,14 +43,8 @@ export default class UserForm extends Component {
         this.setState({ [input]: e.target.value });
     }
 
-    toggleModal = () => {
-        const { isModal } = this.state;
-        this.setState({ isModal: !isModal });
-    }
-
     render() {
         const { step } = this.state;
-        const { isModal } = this.state;
         const { email, password, confirmPassword, phone, oauth_token, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person } = this.state;
         const values = { email, password, confirmPassword, phone, oauth_token, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person}
 
@@ -62,9 +55,6 @@ export default class UserForm extends Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
-                        isModal={isModal}
-                        toggleModal={this.toggleModal}
-
                     />
                 )
             case 2:
@@ -92,8 +82,6 @@ export default class UserForm extends Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
-                        isModal={isModal}
-                        toggleModal={this.toggleModal}
                     />
                 )
             case 5:
@@ -112,8 +100,6 @@ export default class UserForm extends Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
-                        isModal={isModal}
-                        toggleModal={this.toggleModal}
                     />
                 )
             case 7:

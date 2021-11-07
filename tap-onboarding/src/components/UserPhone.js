@@ -1,13 +1,15 @@
 import React, {useState} from 'react'
-import { Modal, Container, Typography, Grid, TextField, Button } from '@material-ui/core'
+import { Modal, Container, TextField, Button } from '@material-ui/core'
 import MyModal from './MyModal';
 
-const UserPhone = ({ prevStep, nextStep, handleChange, values, isModal, toggleModal }) => {
+const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
     const urlOriginalBase = 'https://api.qa.auntap.io/public/check_user?phone[equals]=' 
     var telefonoExistente;
 
     const [error, setError] = useState(false);
     const [helper, setHelper] = useState('');
+
+    const [openModal, setOpenModal] = useState(false);
 
     function validatePhone() {
         let result = true;
@@ -36,12 +38,12 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values, isModal, toggleMo
         validatePhone();
         if(validatePhone()){
             await phoneExistDb()
-            if (telefonoExistente == false ) { 
+            if (telefonoExistente === false ) { 
                 e.preventDefault();
                 nextStep();
             }else{
                 e.preventDefault();
-                toggleModal();
+                setOpenModal(true);
             };
         }
     }
@@ -102,11 +104,9 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values, isModal, toggleMo
                     </div>
                 </Container>
             </form>
-            <Modal open={isModal} onClose={toggleModal} >
-                <MyModal title={'Celular ya registrado'} body={'Por favor, use otro número para registrarse'}>
-                </MyModal>
-            </Modal> 
-
+            <Modal open={openModal}>
+                <MyModal closeModal={setOpenModal} title={'Celular ya registrado'} body={'Por favor, use otro número para registrarse'} />
+            </Modal>
         </div>
     )
 }
