@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from '@material-ui/core'
 
 
-const MyModal = ({ closeModal, title, body }) => {
+const AlertModal = ({ closeModal, title, body }) => {
 
     return (
         
@@ -29,4 +29,4 @@ const MyModal = ({ closeModal, title, body }) => {
     )
 }
 
-export default MyModal
+export default AlertModal

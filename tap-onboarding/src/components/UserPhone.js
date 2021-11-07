@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import { Modal, Container, TextField, Button } from '@material-ui/core'
-import MyModal from './MyModal';
+import AlertModal from './AlertModal';
 
 const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
     const urlOriginalBase = 'https://api.qa.auntap.io/public/check_user?phone[equals]=' 
     var telefonoExistente;
 
+    
     const [error, setError] = useState(false);
     const [helper, setHelper] = useState('');
 
@@ -13,14 +14,16 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
 
     function validatePhone() {
         let result = true;
-      
+        setError(false);
+        setHelper('');
+        
         if (!values.phone) {
             setError(true);
             setHelper("Por favor, completa tu número de celular");
             result = false;
         
         } else {
-          var pattern = new RegExp(/^([0-9]{10})$/); 
+          var pattern = new RegExp(/^([0-9]{10,11})$/); 
           result = pattern.test(values.phone);
       
             if (!result) {
@@ -35,7 +38,7 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
 
     const Continue = async(e) => {
         e.preventDefault();
-        validatePhone();
+        //validatePhone();
         if(validatePhone()){
             await phoneExistDb()
             if (telefonoExistente === false ) { 
@@ -77,9 +80,12 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                                 helperText={helper}
                                 id="textPhone"
                                 variant="outlined" 
-                                placeholder="112345 6789" 
+                                placeholder="1123456789" 
                                 label="Celular"
-                                onChange={handleChange('phone')}   
+                                onChange={handleChange('phone')}
+                                onKeyUp={validatePhone}
+                                onBlur={validatePhone}
+                                autoComplete="phone" 
                                 defaultValue={values.phone} 
                                 fullWidth
                             />
@@ -105,7 +111,7 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                 </Container>
             </form>
             <Modal open={openModal} onClose={() => setOpenModal(false)}>
-                <MyModal closeModal={setOpenModal} title={'Celular ya registrado'} body={'Por favor, use otro número para registrarse'} />
+                <AlertModal closeModal={setOpenModal} title={'Celular ya registrado'} body={'Por favor, use otro número para registrarse'} />
             </Modal>
         </div>
     )

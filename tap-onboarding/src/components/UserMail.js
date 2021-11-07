@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Modal, Container, TextField, Button, InputAdornment} from '@material-ui/core'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import MyModal from './MyModal';
+import AlertModal from './AlertModal';
 
 
 
@@ -16,7 +16,9 @@ const UserMail = ({ nextStep, handleChange, values }) => {
     
     function validateMail() {
         let result = true;
-      
+        setError(false);
+        setHelper('');
+        
         if (!values.email) {
             setError(true);
             setHelper("Por favor, completa tu mail");
@@ -37,7 +39,7 @@ const UserMail = ({ nextStep, handleChange, values }) => {
 
     const Continue = async(e) => {
         e.preventDefault();
-        validateMail();
+        //validateMail();
         if(validateMail()){
             await mailExistDb()
             if (mailExistente === false ) { 
@@ -75,9 +77,11 @@ const UserMail = ({ nextStep, handleChange, values }) => {
                                     helperText={helper}
                                     id="textMail"
                                     variant="outlined"
-                                    label="Email"
                                     placeholder="nombre@email.com.ar"
+                                    label="Email"
                                     onChange={handleChange('email')}
+                                    onKeyUp={validateMail}
+                                    onBlur={validateMail}
                                     defaultValue={values.email}
                                     autoComplete="email"
                                     fullWidth                      
@@ -87,7 +91,7 @@ const UserMail = ({ nextStep, handleChange, values }) => {
                                             <MailOutlineIcon />
                                             </InputAdornment>
                                         ),
-                                        }}
+                                    }}
                                     
                                 />
                             <div class = "pt-24 py-14">
@@ -101,7 +105,7 @@ const UserMail = ({ nextStep, handleChange, values }) => {
             </form>
             
             <Modal open={openModal} onClose={() => setOpenModal(false)} >
-                <MyModal closeModal={setOpenModal} title={'Mail ya registrado'} body={'Por favor, use otro mail para registrarse'} />
+                <AlertModal closeModal={setOpenModal} title={'Mail ya registrado'} body={'Por favor, use otro mail para registrarse'} />
             </Modal>
         </div>
     )

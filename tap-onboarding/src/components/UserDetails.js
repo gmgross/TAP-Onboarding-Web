@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Modal, Container, TextField, Button } from '@material-ui/core'
-import MyModal from './MyModal';
+import AlertModal from './AlertModal';
 
 const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
     const urlOriginalBase = 'https://api.qa.auntap.io/public/check_user?document_id[equals]=' 
@@ -13,7 +13,9 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
     
     function validateDocument_id() {
         let result = true;
-      
+        setError(false);
+        setHelper('');
+
         if (!values.document_id) {
             setError(true);
             setHelper("Por favor, completa tu número de DNI");
@@ -36,7 +38,7 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
     
     const Continue = async(e) => {
         e.preventDefault();
-        validateDocument_id();
+        //validateDocument_id();
         if(validateDocument_id()){
             await document_idExistDb()
             if (dniExistente === false ) { 
@@ -78,9 +80,11 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
                                     variant="outlined"  
                                     placeholder="11111111"
                                     label="DNI" 
-                                    defaultValue={values.document_id} 
-                                    onChange={handleChange('document_id')} 
+                                    onChange={handleChange('document_id')}
+                                    onKeyUp={validateDocument_id}
+                                    onBlur={validateDocument_id}
                                     autoComplete="document_id" 
+                                    defaultValue={values.document_id} 
                                     fullWidth
                                 />
 
@@ -98,7 +102,7 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
                             </div>
                         </form>
                         <Modal open={openModal} onClose={() => setOpenModal(false)} >
-                            <MyModal closeModal={setOpenModal} title={'El DNI ya esta asociado a un usuario existente'} body={''} />
+                            <AlertModal closeModal={setOpenModal} title={'El DNI ya esta asociado a un usuario existente'} body={''} />
                         </Modal> 
                         
                     </div>

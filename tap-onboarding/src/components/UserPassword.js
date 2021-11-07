@@ -7,6 +7,8 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
     
     function validatePassword() {
         let result = true;
+        setError(false);
+        setHelper('');
       
         if (!values.password) {
             setError(true);
@@ -61,9 +63,11 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                                     helperText={helper}
                                     id="textPassword"
                                     variant="outlined"
-                                    label="Clave"
                                     placeholder="1234"
+                                    label="Clave"
                                     onChange={handleChange('password')}
+                                    onKeyUp={validatePassword}
+                                    onBlur={validatePassword}
                                     //defaultValue={values.password}
                                     //autoComplete="password"
                                     fullWidth
