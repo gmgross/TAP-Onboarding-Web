@@ -100,7 +100,7 @@ const UserMail = ({ nextStep, handleChange, values }) => {
                 </Container>
             </form>
             
-            <Modal open={openModal} >
+            <Modal open={openModal} onClose={() => setOpenModal(false)} >
                 <MyModal closeModal={setOpenModal} title={'Mail ya registrado'} body={'Por favor, use otro mail para registrarse'} />
             </Modal>
         </div>

@@ -104,7 +104,7 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                     </div>
                 </Container>
             </form>
-            <Modal open={openModal}>
+            <Modal open={openModal} onClose={() => setOpenModal(false)}>
                 <MyModal closeModal={setOpenModal} title={'Celular ya registrado'} body={'Por favor, use otro número para registrarse'} />
             </Modal>
         </div>
