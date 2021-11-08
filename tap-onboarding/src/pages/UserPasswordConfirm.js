@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Container, Grid, TextField, Button } from '@material-ui/core'
 
-const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
+const UserPasswordConfirm = ({ prevStep, nextStep, handleChange, values }) => {
     const [error, setError] = useState(false);
     const [helper, setHelper] = useState('');
     
@@ -75,4 +75,4 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
     )
 }
 
-export default UserPassword
+export default UserPasswordConfirm

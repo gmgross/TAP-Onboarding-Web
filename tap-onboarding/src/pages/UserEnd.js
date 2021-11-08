@@ -3,7 +3,7 @@ import { Container,Button } from '@material-ui/core'
 
 
 
-const UserPassword = ({ prevStep, values }) => {
+const UserEnd = ({ prevStep, values }) => {
 
     const Continue = e => {
         e.preventDefault();
@@ -76,4 +76,4 @@ const UserPassword = ({ prevStep, values }) => {
     )
 }
 
-export default UserPassword
+export default UserEnd
