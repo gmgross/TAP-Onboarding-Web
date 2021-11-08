@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Modal, Container, TextField, Button } from '@material-ui/core'
+import { Modal, Container, TextField, Button } from '@mui/material/'
 import AlertModal from '../components/AlertModal';
 
 const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {

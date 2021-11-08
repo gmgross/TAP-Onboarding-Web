@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, TextField, Button } from '@material-ui/core'
+import { Container, TextField, Button  } from '@mui/material/'
 const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => {
     const Continue = e => {
         e.preventDefault();

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import {Modal, Container, TextField, Button, InputAdornment} from '@material-ui/core'
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import {Modal, Container, TextField, Button, InputAdornment} from '@mui/material/'
+import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
+
 import AlertModal from '../components/AlertModal';
 
 
@@ -88,7 +89,7 @@ const UserMail = ({ nextStep, handleChange, values }) => {
                                     InputProps={{
                                         startAdornment: (
                                             <InputAdornment position="start">
-                                            <MailOutlineIcon />
+                                            < MailOutlineOutlinedIcon />
                                             </InputAdornment>
                                         ),
                                     }}

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Container, Grid, TextField, Button } from '@material-ui/core'
+import { Container, Grid, TextField, Button } from '@mui/material/'
 
 const UserPasswordConfirm = ({ prevStep, nextStep, handleChange, values }) => {
     const [error, setError] = useState(false);

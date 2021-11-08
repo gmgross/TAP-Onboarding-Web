@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Button } from '@material-ui/core'
+import { Container, Button } from '@mui/material/'
 const UserDetailsConfirm = ({ prevStep, nextStep, handleChange, values }) => {
     const Continue = e => {
         e.preventDefault();
