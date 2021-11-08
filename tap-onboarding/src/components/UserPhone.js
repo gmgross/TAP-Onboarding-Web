@@ -69,10 +69,10 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class= "pt-6 pb-10">
-                            <p class="text-indigo-900 text-2xl text-center  font-medium font-sans">Ingresá tu celular</p>
+                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">Ingresá tu celular</p>
                         </div>
                         <div class= "pt-6 pb-5">
-                            <p class="text-gray-500 text-1xl text-center font-sans">Lo necesitamos para enviarte un código de verificación</p>
+                            <p class="text-gray-600 text-1xl text-center font-comfortaa">Lo necesitamos para enviarte un código de verificación</p>
                         </div>
                         <form class= "pt-6 pb-10">   
                             <TextField 
@@ -91,17 +91,17 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                             />
                             
                             <div class= "pt-6 pb-2">
-                            <p class="text-gray-400 text-xs text-left font-sans">EscribÍ tu celular con código de área sin cero ni 15</p>
+                            <p class="text-gray-400 text-xs text-left font-comfortaa">EscribÍ tu celular con código de área sin cero ni 15</p>
                         </div>
 
                             <div class = "pt-3 flex flex-col">
                             <div class="pt-2 pb-2">
-                            <Button onClick={Continue} type="submit" variant="contained" class="rounded-full bg-indigo-500 hover:bg-indigo-400 px-9 text-white font-bold py-2"                            >
+                            <Button onClick={Continue} type="submit" variant="contained" class="rounded-full bg-indigo-900 hover:bg-indigo-800 px-9 text-white font-comfortaa py-2"                            >
                                     Siguiente
                             </Button>
                             </div>
                             <div class="pb-2">
-                            <Button onClick={Previous} type="submit" variant="contained" class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2"                            >
+                            <Button onClick={Previous} type="submit" variant="contained" class="rounded-full bg-green-500 hover:bg-green-400 px-12 text-white font-comfortaa py-2"                            >
                                     Volver
                             </Button>
                             </div>

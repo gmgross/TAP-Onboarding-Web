@@ -20,8 +20,8 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                     <div>
 
                         <div class= "pt-2 pb-4">
-                            <p class="text-indigo-900 text-2xl text-center font-medium font-sans">¡ Felicitaciones, {values.first_name} !</p>
-                            <p class="text-indigo-900 text-2xl text-center font-medium font-sans">Ya tenes tu cuenta</p>
+                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">¡ Felicitaciones, {values.first_name} !</p>
+                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">Ya tenes tu cuenta</p>
                         </div>
 
                         <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-green-100">
@@ -31,7 +31,7 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                         </div>
                             
                         <div class= "pt-2 pb-2">
-                            <p class="text-gray-500 text-xl text-center font-sans">Se te envio un mail con los detalles de tu cuenta</p>
+                            <p class="text-gray-600 text-xl text-center font-comfortaa">Se te envio un mail con los detalles de tu cuenta</p>
                         </div>
                                                   
 
@@ -43,7 +43,7 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                                     onClick={Continue} 
                                     type="submit" 
                                     variant="contained" 
-                                    class="rounded-full bg-gray-300 hover:bg-gray-00 px-9 text-white font-bold py-2">
+                                    class="rounded-full bg-gray-300 hover:bg-gray-00 px-9 text-white font-comfortaa py-2">
                                         Validar identidad
                                     </Button>
                                 </div>
@@ -53,7 +53,7 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                                         onClick={Continue} 
                                         type="submit" 
                                         variant="contained" 
-                                        class=" rounded shadow rounded-full bg-gray-300 hover:bg-gray-00 px-9 text-white font-bold py-2">
+                                        class=" rounded shadow rounded-full bg-gray-300 hover:bg-gray-00 px-9 text-white font-comfortaa py-2">
                                             Descargar la App
                                     </Button>
                                 </div>
@@ -63,7 +63,7 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                                         onClick={Previous} 
                                         type="submit" 
                                         variant="contained" 
-                                        class="rounded-full bg-green-400 hover:bg-green-300 px-12 text-white font-bold py-2">
+                                        class="rounded-full bg-green-500 hover:bg-green-400 px-12 text-white font-comfortaa py-2">
                                             Volver
                                     </Button>
                                 </div>
