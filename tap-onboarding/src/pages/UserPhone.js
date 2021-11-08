@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Modal, Container, TextField, Button } from '@material-ui/core'
-import AlertModal from './AlertModal';
+import AlertModal from '../components/AlertModal';
 
 const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
     const urlOriginalBase = 'https://api.qa.auntap.io/public/check_user?phone[equals]=' 
@@ -69,11 +69,15 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class= "pt-6 pb-10">
-                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">Ingresá tu celular</p>
+                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">
+                                Ingresá tu celular</p>
                         </div>
+
                         <div class= "pt-6 pb-5">
-                            <p class="text-gray-600 text-1xl text-center font-comfortaa">Lo necesitamos para enviarte un código de verificación</p>
+                            <p class="text-gray-600 text-1xl text-center font-comfortaa">
+                                Lo necesitamos para enviarte un código de verificación</p>
                         </div>
+                        
                         <form class= "pt-6 pb-10">   
                             <TextField 
                                 error={error}
@@ -91,27 +95,38 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                             />
                             
                             <div class= "pt-6 pb-2">
-                            <p class="text-gray-400 text-xs text-left font-comfortaa">EscribÍ tu celular con código de área sin cero ni 15</p>
-                        </div>
+                                <p class="text-gray-400 text-xs text-left font-comfortaa">
+                                    EscribÍ tu celular con código de área sin cero ni 15</p>
+                            </div>
 
                             <div class = "pt-3 flex flex-col">
-                            <div class="pt-2 pb-2">
-                            <Button onClick={Continue} type="submit" variant="contained" class="rounded-full bg-indigo-900 hover:bg-indigo-800 px-9 text-white font-comfortaa py-2"                            >
-                                    Siguiente
-                            </Button>
-                            </div>
-                            <div class="pb-2">
-                            <Button onClick={Previous} type="submit" variant="contained" class="rounded-full bg-green-500 hover:bg-green-400 px-12 text-white font-comfortaa py-2"                            >
-                                    Volver
-                            </Button>
-                            </div>
+                                <div class="pt-2 pb-2">
+                                    <Button 
+                                        class="btn-continue"
+                                        onClick={Continue} 
+                                        type="submit" 
+                                        variant="contained">
+                                            Siguiente
+                                    </Button>
+                                </div>
+                                <div class="pb-2">
+                                    <Button 
+                                        class="btn-previous"
+                                        onClick={Previous} 
+                                        type="submit" 
+                                        variant="contained">
+                                            Volver
+                                    </Button>
+                                </div>
                             </div>
                         </form>
                     </div>
                 </Container>
             </form>
             <Modal open={openModal} onClose={() => setOpenModal(false)}>
-                <AlertModal closeModal={setOpenModal} title={'Celular ya registrado'} body={'Por favor, use otro número para registrarse'} />
+                <AlertModal closeModal={setOpenModal} 
+                    title={'Celular ya registrado'} 
+                    body={'Por favor, use otro número para registrarse'} />
             </Modal>
         </div>
     )

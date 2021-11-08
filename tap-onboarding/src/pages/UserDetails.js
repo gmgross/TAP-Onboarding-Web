@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
+import React, {useState} from 'react'
 import { Modal, Container, TextField, Button } from '@material-ui/core'
-import AlertModal from './AlertModal';
+import AlertModal from '../components/AlertModal';
 
 const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
     const urlOriginalBase = 'https://api.qa.auntap.io/public/check_user?document_id[equals]=' 
@@ -67,11 +67,15 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class= "pt-6 pb-10">
-                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">Asociá tu DNI</p>
+                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">
+                                Asociá tu DNI</p>
                         </div>
+
                         <div class= "pt-6 pb-5">
-                            <p class="text-gray-600 text-1xl text-center font-comfortaa">Queremos aseguarnos que nadie se haga pasar por vos</p>
+                            <p class="text-gray-600 text-1xl text-center font-comfortaa">
+                                Queremos aseguarnos que nadie se haga pasar por vos</p>
                         </div>
+
                         <form class= "pt-5 pb-10">
                                 <TextField 
                                     error={error}
@@ -90,21 +94,30 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
 
                             <div class = "pt-16 flex flex-col">
                                 <div class="pt-2 pb-2">
-                                    <Button onClick={Continue} type="submit" variant="contained" class="rounded-full bg-indigo-900 hover:bg-indigo-800 px-9 text-white font-comfortaa py-2"                            >
+                                    <Button 
+                                        class="btn-continue"
+                                        onClick={Continue} 
+                                        type="submit" 
+                                        variant="contained"> 
                                             Siguiente
                                     </Button>
                                 </div>
                                 <div class = "pb-2">
-                                    <Button onClick={Previous} type="submit" variant="contained" class="rounded-full bg-green-500 hover:bg-green-400 px-12 text-white font-comfortaa py-2"                            >
+                                    <Button 
+                                        class="btn-previous"
+                                        onClick={Previous} 
+                                        type="submit" 
+                                        variant="contained">
                                             Volver
                                     </Button>
                                 </div>
                             </div>
                         </form>
                         <Modal open={openModal} onClose={() => setOpenModal(false)} >
-                            <AlertModal closeModal={setOpenModal} title={'El DNI ya esta asociado a un usuario existente'} body={''} />
+                            <AlertModal closeModal={setOpenModal} 
+                                title={'El DNI ya esta asociado a un usuario existente'} 
+                                body={''} />
                         </Modal> 
-                        
                     </div>
                 </Container>
             </form>

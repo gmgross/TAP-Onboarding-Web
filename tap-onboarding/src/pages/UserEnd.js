@@ -3,7 +3,7 @@ import { Container,Button } from '@material-ui/core'
 
 
 
-const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
+const UserPassword = ({ prevStep, values }) => {
 
     const Continue = e => {
         e.preventDefault();
@@ -40,11 +40,11 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                             <div class = "pt-2 flex flex-col">
                                 <div class="py-2 pt-4">
                                     <Button 
-                                    onClick={Continue} 
-                                    type="submit" 
-                                    variant="contained" 
-                                    class="rounded-full bg-gray-300 hover:bg-gray-00 px-9 text-white font-comfortaa py-2">
-                                        Validar identidad
+                                        class="rounded-full bg-gray-300 hover:bg-gray-00 px-12 text-white font-comfortaa py-2"
+                                        onClick={Continue} 
+                                        type="submit" 
+                                        variant="contained">
+                                            Validar identidad
                                     </Button>
                                 </div>
 
@@ -53,7 +53,7 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                                         onClick={Continue} 
                                         type="submit" 
                                         variant="contained" 
-                                        class=" rounded shadow rounded-full bg-gray-300 hover:bg-gray-00 px-9 text-white font-comfortaa py-2">
+                                        class=" rounded shadow rounded-full bg-gray-300 hover:bg-gray-00 px-12 text-white font-comfortaa py-2">
                                             Descargar la App
                                     </Button>
                                 </div>
@@ -63,7 +63,7 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                                         onClick={Previous} 
                                         type="submit" 
                                         variant="contained" 
-                                        class="rounded-full bg-green-500 hover:bg-green-400 px-12 text-white font-comfortaa py-2">
+                                        class="btn-previous">
                                             Volver
                                     </Button>
                                 </div>

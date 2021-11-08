@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Modal, Container, TextField, Button, InputAdornment} from '@material-ui/core'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import AlertModal from './AlertModal';
+import AlertModal from '../components/AlertModal';
 
 
 
@@ -95,8 +95,13 @@ const UserMail = ({ nextStep, handleChange, values }) => {
                                     
                                 />
                             <div class = "pt-24 py-14">
-                            <Button onClick={Continue} type="submit" variant="contained" class="rounded-full bg-indigo-900 hover:bg-indigo-800 px-9 text-white font-comfortaa py-2">
-                                    Siguiente
+                                <Button 
+                                    class="btn-continue"
+                                    //class="btn-continue"
+                                    onClick={Continue} 
+                                    type="submit" 
+                                    variant="contained">
+                                        Siguiente
                                 </Button>
                             </div>
                         </form>
@@ -105,7 +110,9 @@ const UserMail = ({ nextStep, handleChange, values }) => {
             </form>
             
             <Modal open={openModal} onClose={() => setOpenModal(false)} >
-                <AlertModal closeModal={setOpenModal} title={'Mail ya registrado'} body={'Por favor, use otro mail para registrarse'} />
+                <AlertModal closeModal={setOpenModal} 
+                    title={'Mail ya registrado'} 
+                    body={'Por favor, use otro mail para registrarse'} />
             </Modal>
         </div>
     )

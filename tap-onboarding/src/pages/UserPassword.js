@@ -76,12 +76,12 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                             </Grid>
                             <div class = "pt-20 flex flex-col">
                             <div class="py-2 pt-4">
-                            <Button onClick={Continue} type="submit" variant="contained" class="rounded-full bg-indigo-900 hover:bg-indigo-800 px-9 text-white font-comfortaa py-2">
+                            <Button onClick={Continue} type="submit" variant="contained" class="btn-continue">
                                     Siguiente
                             </Button>
                             </div>
                             <div class="pb-2">
-                            <Button onClick={Previous} type="submit" variant="contained" class="rounded-full bg-green-500 hover:bg-green-400 px-12 text-white font-comfortaa py-2">
+                            <Button onClick={Previous} type="submit" variant="contained" class="btn-previous">
                                     Volver
                             </Button>
                             </div>

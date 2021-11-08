@@ -38,12 +38,20 @@ const UserDeclaration = ({ prevStep, nextStep, handleChange, values }) => {
                             </div>     
                             <div class = "pt-16 flex flex-col">
                                 <div class="pt-3 pb-2">
-                                    <Button onClick={Continue} type="submit" variant="contained" class="rounded-full bg-indigo-900 hover:bg-indigo-800 px-9 text-white font-comfortaa py-2"                            >
+                                    <Button 
+                                        class="btn-continue"
+                                        onClick={Continue} 
+                                        type="submit" 
+                                        variant="contained">
                                             Siguiente
                                     </Button>
                                 </div>
                                 <div class = "pb-2">
-                                    <Button onClick={Previous} type="submit" variant="contained" class="rounded-full bg-green-500 hover:bg-green-400 px-12 text-white font-comfortaa py-2"                            >
+                                    <Button 
+                                        class="btn-previous"
+                                        onClick={Previous} 
+                                        type="submit" 
+                                        variant="contained">
                                             Volver
                                     </Button>
                                 </div>
