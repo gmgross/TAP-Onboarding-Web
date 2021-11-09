@@ -73,48 +73,29 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                                 Ingresá tu celular</p>
                         </div>
 
-                        <div class= "pt-6 pb-5">
+                        <div class= "pt- pb-5">
                             <p class="text-gray-600 text-1xl text-center font-comfortaa">
                                 Lo necesitamos para enviarte un código de verificación</p>
                         </div>
                         
-                        <form class= "pt-6 pb-10">   
-                            <TextField 
-                                error={error}
-                                helperText={helper}
-                                id="textPhone"
-                                variant="outlined" 
-                                placeholder="1123456789" 
-                                label="Celular"
-                                onChange={handleChange('phone')}
-                                onKeyUp={validatePhone}
-                                onBlur={validatePhone}
-                                autoComplete="phone" 
-                                defaultValue={values.phone} 
-                                fullWidth
-                            />
-                            
+                        <form class= "pt-5 pb-10">   
+                            <TextField error={error} helperText={helper} id="textPhone" variant="outlined" placeholder="1123456789" 
+                                label="Celular" onChange={handleChange('phone')} onKeyUp={validatePhone} onBlur={validatePhone}
+                                autoComplete="phone" defaultValue={values.phone} fullWidth />
+
                             <div class= "pt-6 pb-2">
                                 <p class="text-gray-400 text-xs text-left font-comfortaa">
                                     EscribÍ tu celular con código de área sin cero ni 15</p>
                             </div>
 
-                            <div class = "pt-3 flex flex-col">
+                            <div class = "pt-6 flex flex-col">
                                 <div class="pt-2 pb-2">
-                                    <Button 
-                                        class="btn-continue"
-                                        onClick={Continue} 
-                                        type="submit" 
-                                        variant="contained">
+                                    <Button class="btn-continue" onClick={Continue} type="submit" variant="contained">
                                             Siguiente
                                     </Button>
                                 </div>
                                 <div class="pb-2">
-                                    <Button 
-                                        class="btn-previous"
-                                        onClick={Previous} 
-                                        type="submit" 
-                                        variant="contained">
+                                    <Button class="btn-previous" onClick={Previous} type="submit" variant="contained">
                                             Volver
                                     </Button>
                                 </div>

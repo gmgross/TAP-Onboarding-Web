@@ -29,7 +29,7 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
                         <TextField variant="outlined" placeholder="" onChange={handleChange('phoneVer1')} defaultValue={values.phoneVer1} class= "" />
                         <TextField variant="outlined" placeholder="" onChange={handleChange('phoneVer1')} defaultValue={values.phoneVer1} class= "" />
                     </div>
-                    <div class = "pt-20 flex flex-col">
+                    <div class = "pt-14 flex flex-col">
                         <div class="pb-2 pt-4">
                         <Button onClick={Continue} type="submit" variant="contained" class="btn-continue"                            >
                                 Siguiente

@@ -36,22 +36,14 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
                                 </label>
                                 <input id="push-uif2" name="push-uif" type="radio" class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300 justify-self-end " />
                             </div>
-                            <div class="pt-16 flex flex-col">
+                            <div class="pt-11 flex flex-col">
                                 <div class="pt-1 pb-2">
-                                    <Button
-                                        class="btn-continue"
-                                        onClick={Continue}
-                                        type="submit"
-                                        variant="contained">
+                                    <Button class="btn-continue" onClick={Continue} type="submit" variant="contained"> 
                                         Declarar
                                     </Button>
                                 </div>
                                 <div class="pb-1">
-                                    <Button
-                                        class="btn-previous"
-                                        onClick={Previous}
-                                        type="submit"
-                                        variant="contained">
+                                    <Button class="btn-previous" onClick={Previous} type="submit" variant="contained">
                                         Volver
                                     </Button>
                                 </div>

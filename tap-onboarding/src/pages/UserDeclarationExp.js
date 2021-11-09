@@ -36,22 +36,14 @@ const UserDeclarationExp = ({ prevStep, nextStep, handleChange, values }) => {
                                 </label>
                                 <input id="push-expuesta2" name="push-expuesta" type="radio" class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300" />
                             </div>
-                            <div class="pt-16 flex flex-col">
+                            <div class="pt-10 flex flex-col">
                                 <div class="pt-3 pb-2">
-                                    <Button
-                                        class="btn-continue"
-                                        onClick={Continue}
-                                        type="submit"
-                                        variant="contained">
+                                    <Button class="btn-continue" onClick={Continue} type="submit" variant="contained">
                                         Siguiente
                                     </Button>
                                 </div>
                                 <div class="pb-2">
-                                    <Button
-                                        class="btn-previous"
-                                        onClick={Previous}
-                                        type="submit"
-                                        variant="contained">
+                                    <Button class="btn-previous" onClick={Previous} type="submit" variant="contained"> 
                                         Volver
                                     </Button>
                                 </div>
