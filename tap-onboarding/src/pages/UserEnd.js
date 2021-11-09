@@ -58,7 +58,7 @@ const UserEnd = ({ prevStep, values }) => {
                                     </Button>
                                 </div>
 
-                                <div class="pb-2 pt-4">
+                                <div class="pb- pt-3">
                                     <Button 
                                         onClick={Previous} 
                                         type="submit" 
