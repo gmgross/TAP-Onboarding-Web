@@ -5,7 +5,9 @@ const UserDeclarationExp = ({ prevStep, nextStep, handleChange, values }) => {
 
     const Continue = e => {
         e.preventDefault();
-        nextStep();
+        if(values.is_exposed_person) {
+            nextStep();
+        }
     }
 
     const Previous = e => {
@@ -20,31 +22,41 @@ const UserDeclarationExp = ({ prevStep, nextStep, handleChange, values }) => {
                         <div class="pt-5 pb-4">
                             <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">Declaraciones Juradas</p>
                         </div>
+
                         <div class="pt-2 pb-1">
-                            <p class="text-gray-600 text-sm text-center font-comfortaa ">¿Sos una persona Expuesta Politicamente segun la nomina establicida en la Res. UIF N° 134/2018 y modificatorias?</p>
+                            <p class="text-gray-600 text-sm text-center font-comfortaa ">
+                                ¿Sos una persona Expuesta Politicamente segun la nomina establicida en la Res. UIF N° 134/2018 y modificatorias?
+                            </p>
                         </div>
                         <form class="pt-9 pb-10 place-content-evenly">
                             <div class="flex items-center mt-1 flex rounded-md shadow-sm bg-indigo-200 place-content-evenly bg-cover">
                                 <label for="push-expuesta1" class="text-sm font-medium font-comfortaa text-indigo-800">
                                     Si, soy una persona expuesta Politicamente
                                 </label>
-                                <input id="push-expuesta1" name="push-expuesta" type="radio" class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300" />
+                                <input value={true} onChange={handleChange('is_exposed_person')} id="push-expuesta1" name="push-expuesta" type="radio" class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300" />
                             </div>
                             <div class="flex items-center mt-1 flex rounded-md shadow-sm bg-indigo-200 place-content-evenly">
                                 <label for="push-expuesta2" class="text-sm font-medium font-comfortaa text-indigo-800 ">
                                     No soy una persona expuesta Politicamente
                                 </label>
-                                <input id="push-expuesta2" name="push-expuesta" type="radio" class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300" />
+                                <input value={false} onChange={handleChange('is_exposed_person')} id="push-expuesta2" name="push-expuesta" type="radio" class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300" />
                             </div>
+
                             <div class="pt-10 flex flex-col">
                                 <div class="pt-3 pb-2">
-                                    <Button class="btn-continue" onClick={Continue} type="submit" variant="contained">
-                                        Siguiente
+                                    <Button class="btn-continue" 
+                                        onClick={Continue} 
+                                        type="submit" 
+                                        variant="contained">
+                                            Siguiente
                                     </Button>
                                 </div>
                                 <div class="pb-2">
-                                    <Button class="btn-previous" onClick={Previous} type="submit" variant="contained"> 
-                                        Volver
+                                    <Button 
+                                        class="btn-previous" onClick={Previous} 
+                                        type="submit" 
+                                        variant="contained"> 
+                                            Volver
                                     </Button>
                                 </div>
                             </div>
