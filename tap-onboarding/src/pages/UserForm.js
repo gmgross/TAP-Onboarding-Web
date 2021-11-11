@@ -22,8 +22,8 @@ export default class UserForm extends Component {
         check_peype:'',
         first_name:'vacio',
         last_name:'',
-        is_exposed_person:'',
-        is_uif_person:''        
+        is_exposed_person:'0',
+        is_uif_person:'0'        
     }
 
     // vuelve al paso anterior

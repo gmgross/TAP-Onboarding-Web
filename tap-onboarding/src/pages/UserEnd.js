@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container,Button } from '@mui/material/'
+import { Container, Button } from '@mui/material/'
 
 
 
@@ -13,13 +13,16 @@ const UserEnd = ({ prevStep, values }) => {
         e.preventDefault();
         prevStep();
     }
+/*
+    const opcionUif = Boolean(Number(values.is_uif_person)); //{opcionPersonaExpuesta +''}
+    const opcionPersonaExpuesta = Boolean(Number(values.is_exposed_person));//{opcionUif+''}
+*/
     return (
         <div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">
             <form class="w-full bg-white rounded shadow-2xl p-8 m-4 md:max-w-sm md:mx-auto h-auto" >
                 <Container component="main" maxWidth="xs">
                     <div>
-
-                        <div class= "pt-2 pb-4">
+                        <div class="pt-2 pb-4">
                             <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">¡ Felicitaciones, {values.first_name} !</p>
                             <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">Ya tenes tu cuenta</p>
                         </div>
@@ -29,44 +32,46 @@ const UserEnd = ({ prevStep, values }) => {
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
                         </div>
-                            
-                        <div class= "pt-2 pb-2">
+
+                        <div class="pt-2 pb-2">
                             <p class="text-gray-600 text-xl text-center font-comfortaa">Se te envio un mail con los detalles de tu cuenta</p>
                         </div>
-                                                  
 
-                        <form class= "pt-2 pb-10">   
-                            
-                            <div class = "pt-2 flex flex-col">
+
+                        <form class="pt-2 pb-10">
+
+                            <div class="pt-2 flex flex-col">
                                 <div class="py-2 pt-4">
-                                    <Button 
+                                    <Button
                                         class="rounded-full bg-gray-300 hover:bg-gray-00 px-12 text-white font-comfortaa py-2"
-                                        onClick={Continue} 
-                                        type="submit" 
+                                        onClick={Continue}
+                                        type="submit"
                                         variant="contained">
-                                            Validar identidad
+                                        Validar identidad
                                     </Button>
                                 </div>
 
                                 <div class="py-2 pt-4">
-                                    <Button 
-                                        onClick={Continue} 
-                                        type="submit" 
-                                        variant="contained" 
+                                    <Button
+                                        onClick={Continue}
+                                        type="submit"
+                                        variant="contained"
                                         class=" rounded shadow rounded-full bg-gray-300 hover:bg-gray-00 px-12 text-white font-comfortaa py-2">
-                                            Descargar la App
+                                        Descargar la App
                                     </Button>
                                 </div>
 
                                 <div class="pb- pt-3">
-                                    <Button 
-                                        onClick={Previous} 
-                                        type="submit" 
-                                        variant="contained" 
+                                    <Button
+                                        onClick={Previous}
+                                        type="submit"
+                                        variant="contained"
                                         class="btn-previous">
-                                            Volver
+                                        Volver
                                     </Button>
+
                                 </div>
+
                             </div>
                         </form>
                     </div>

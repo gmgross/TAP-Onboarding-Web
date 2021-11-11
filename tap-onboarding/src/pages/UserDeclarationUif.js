@@ -2,16 +2,15 @@ import React from 'react'
 import { Container, Button } from '@mui/material/'
 
 const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
-  
+
     const Previous = e => {
         e.preventDefault();
         prevStep();
     }
     const Continue = e => {
-        e.preventDefault()
-        if(values.is_uif_person) {
-            nextStep();
-        }
+        e.preventDefault()       
+         nextStep();
+        
     }
     return (
         <div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">
@@ -36,12 +35,13 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
                                     Si, soy sujeto obligado ante la UIF
                                 </label>
 
-                                <input 
+                                <input
                                     class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300"
-                                    id="push-uif" 
-                                    name="push-uif" 
-                                    type="radio" 
-                                    value={true}
+                                    id="push-uif"
+                                    name="push-uif"
+                                    type="radio"
+                                    value='1'
+                                    checked={values.is_uif_person === '1'}
                                     onChange={handleChange('is_uif_person')}
                                 />
                             </div>
@@ -51,31 +51,33 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
                                     No soy sujeto obligado ante la UIF
                                 </label>
 
-                                <input 
-                                    class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300 justify-self-end " 
-                                    id="push-uif2" 
-                                    name="push-uif" 
-                                    type="radio" 
-                                    value={false}
-                                    onChange={handleChange('is_uif_person')} 
+                                <input
+                                    class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300 justify-self-end "
+                                    id="push-uif2"
+                                    name="push-uif"
+                                    type="radio"
+                                    value='0'
+                                    checked={values.is_uif_person === '0'}
+                                    defaultChecked
+                                    onChange={handleChange('is_uif_person')}
                                 />
                             </div>
 
                             <div class="pt-11 flex flex-col">
                                 <div class="pt-1 pb-2">
-                                    <Button class="btn-continue" 
-                                        onClick={Continue} 
-                                        type="submit" 
-                                        variant="contained"> 
-                                            Declarar
+                                    <Button class="btn-continue"
+                                        onClick={Continue}
+                                        type="submit"
+                                        variant="contained">
+                                        Declarar
                                     </Button>
                                 </div>
                                 <div class="pb-1">
-                                    <Button class="btn-previous" 
-                                        onClick={Previous} 
-                                        type="submit" 
+                                    <Button class="btn-previous"
+                                        onClick={Previous}
+                                        type="submit"
                                         variant="contained">
-                                            Volver
+                                        Volver
                                     </Button>
                                 </div>
                             </div>

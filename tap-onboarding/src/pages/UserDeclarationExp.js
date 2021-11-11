@@ -5,15 +5,14 @@ const UserDeclarationExp = ({ prevStep, nextStep, handleChange, values }) => {
 
     const Continue = e => {
         e.preventDefault();
-        if(values.is_exposed_person) {
-            nextStep();
-        }
+        nextStep();
     }
 
     const Previous = e => {
         e.preventDefault();
         prevStep();
     }
+
     return (
         <div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">
             <form class="w-full bg-white rounded shadow-2xl p-8 m-4 md:max-w-sm md:mx-auto">
@@ -33,30 +32,46 @@ const UserDeclarationExp = ({ prevStep, nextStep, handleChange, values }) => {
                                 <label for="push-expuesta1" class="text-sm font-medium font-comfortaa text-indigo-800">
                                     Si, soy una persona expuesta Politicamente
                                 </label>
-                                <input value={true} onChange={handleChange('is_exposed_person')} id="push-expuesta1" name="push-expuesta" type="radio" class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300" />
+                                <input
+                                    class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300"
+                                    id="push-expuesta1"
+                                    name="pushExpuesta"
+                                    type="radio"
+                                    value='1'
+                                    checked={values.is_exposed_person === '1'}
+                                    onChange={handleChange('is_exposed_person')} />
                             </div>
                             <div class="flex items-center mt-1 flex rounded-md shadow-sm bg-indigo-200 place-content-evenly">
                                 <label for="push-expuesta2" class="text-sm font-medium font-comfortaa text-indigo-800 ">
                                     No soy una persona expuesta Politicamente
                                 </label>
-                                <input value={false} onChange={handleChange('is_exposed_person')} id="push-expuesta2" name="push-expuesta" type="radio" class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300" />
+                                <input
+                                    class="mr-2 focus:ring-indigo-500 text-indigo-600 border-gray-300"
+                                    id="push-expuesta2"
+                                    name="pushExpuesta"
+                                    type="radio"
+                                    value='0'
+                                    checked={values.is_exposed_person === '0'}
+                                    defaultChecked
+                                    onChange={handleChange('is_exposed_person')}
+                                />
                             </div>
 
                             <div class="pt-10 flex flex-col">
                                 <div class="pt-3 pb-2">
-                                    <Button class="btn-continue" 
-                                        onClick={Continue} 
-                                        type="submit" 
+                                    <Button class="btn-continue"
+                                        onClick={Continue}
+                                        type="submit"
                                         variant="contained">
-                                            Siguiente
+                                        Siguiente
                                     </Button>
                                 </div>
                                 <div class="pb-2">
-                                    <Button 
-                                        class="btn-previous" onClick={Previous} 
-                                        type="submit" 
-                                        variant="contained"> 
-                                            Volver
+                                    <Button
+                                        class="btn-previous" onClick={Previous}
+                                        type="submit"
+                                        variant="contained">
+                                        Volver
                                     </Button>
                                 </div>
                             </div>
