@@ -18,7 +18,6 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
         const html = "HTML DE TAP" 
 
             try{
-                debugger
                  axios.post("http://localhost:3000/api/mail", {to, subject, html})
             }catch(err){
             }
