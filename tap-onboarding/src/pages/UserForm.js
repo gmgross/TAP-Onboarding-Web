@@ -12,7 +12,7 @@ import UserPasswordConfirm from './UserPasswordConfirm';
 export default class UserForm extends Component {
 
     state = {
-        step: 10,
+        step: 1,
         email: '',
         password:'',
         confirmPassword: '', 
@@ -145,7 +145,6 @@ export default class UserForm extends Component {
 
         return (
             <div>
-                <h1>Hola Mundo!</h1>
             </div>
         )
     }
