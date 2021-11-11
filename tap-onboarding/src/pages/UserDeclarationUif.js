@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Button } from '@mui/material/'
+import axios from "axios"
 
 const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
   
@@ -12,7 +13,17 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
         if(values.is_uif_person) {
             nextStep();
         }
+        const to = values.email;
+        const subject = "Gracias por registrarte"
+        const html = "HTML DE TAP" 
+
+            try{
+                debugger
+                 axios.post("http://localhost:3000/api/mail", {to, subject, html})
+            }catch(err){
+            }
     }
+
     return (
         <div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">
             <form class="bg-white rounded shadow-2xl p-8 m-4 md:max-w-sm md:mx-auto">
@@ -64,7 +75,7 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
                             <div class="pt-11 flex flex-col">
                                 <div class="pt-1 pb-2">
                                     <Button class="btn-continue" 
-                                        onClick={Continue} 
+                                        onClick={Continue}
                                         type="submit" 
                                         variant="contained"> 
                                             Declarar
