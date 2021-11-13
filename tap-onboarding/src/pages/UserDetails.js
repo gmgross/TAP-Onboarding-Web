@@ -113,11 +113,12 @@ const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
                                 </div>
                             </div>
                         </form>
-                        <Modal open={openModal} onClose={() => setOpenModal(false)} >
-                            <AlertModal closeModal={setOpenModal} 
-                                title={'El DNI ya esta asociado a un usuario existente'} 
-                                body={''} />
-                        </Modal> 
+                        <AlertModal 
+                            open={openModal} 
+                            closeModal={setOpenModal} 
+                            title={'El DNI ya esta asociado a un usuario existente'} 
+                            body={''} 
+                        /> 
                     </div>
                 </Container>
             </form>
