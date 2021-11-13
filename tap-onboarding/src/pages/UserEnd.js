@@ -2,12 +2,14 @@ import React from 'react'
 import { Container, Button } from '@mui/material/'
 
 
-
 const UserEnd = ({ prevStep, values }) => {
+
+    const LINK_TRACKEABLE = 'https://www.google.com'
+    // const LINK_TRACKEABLE = 'https://click.auntap.com/5uO5/onboardingwebhttps://click.auntap.com/5uO5/onboardingweb'
 
     const Continue = e => {
         e.preventDefault();
-        //nextStep();
+        nextStep();
     }
     const Previous = e => {
         e.preventDefault();
@@ -42,24 +44,34 @@ const UserEnd = ({ prevStep, values }) => {
 
                             <div class="pt-2 flex flex-col">
                                 <div class="py-2 pt-4">
+                                    <a href={' '} class='rounded-full bg-gray-300 hover:bg-gray-00 px-12 text-white font-comfortaa py-3'>
+                                    Validar identidad </a>
+                                </div>
+
+                               {/*  <div class="py-2 pt-4">
                                     <Button
                                         class="rounded-full bg-gray-300 hover:bg-gray-00 px-12 text-white font-comfortaa py-2"
                                         onClick={Continue}
                                         type="submit"
                                         variant="contained">
-                                        Validar identidad
+                                            Validar identidad
                                     </Button>
-                                </div>
+                                </div> */}
 
                                 <div class="py-2 pt-4">
+                                    <a href={LINK_TRACKEABLE} class='rounded-full bg-indigo-900 hover:bg-indigo-800 px-12 text-white font-comfortaa py-3'>
+                                        Descargar la App </a>
+                                </div>
+
+                                {/* <div class="py-2 pt-4">
                                     <Button
                                         onClick={Continue}
                                         type="submit"
                                         variant="contained"
                                         class=" rounded shadow rounded-full bg-gray-300 hover:bg-gray-00 px-12 text-white font-comfortaa py-2">
-                                        Descargar la App
+                                            Descargar la App
                                     </Button>
-                                </div>
+                                </div> */}
 
                                 <div class="pb- pt-3">
                                     <Button
@@ -67,9 +79,9 @@ const UserEnd = ({ prevStep, values }) => {
                                         type="submit"
                                         variant="contained"
                                         class="btn-previous">
-                                        Volver
+                                            Volver
                                     </Button>
-
+                                    
                                 </div>
 
                             </div>
