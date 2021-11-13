@@ -7,10 +7,11 @@ const UserEnd = ({ prevStep, values }) => {
     const LINK_TRACKEABLE = 'https://www.google.com'
     // const LINK_TRACKEABLE = 'https://click.auntap.com/5uO5/onboardingwebhttps://click.auntap.com/5uO5/onboardingweb'
 
-    const Continue = e => {
+/*     const Continue = e => {
         e.preventDefault();
         nextStep();
-    }
+    } */
+
     const Previous = e => {
         e.preventDefault();
         prevStep();
