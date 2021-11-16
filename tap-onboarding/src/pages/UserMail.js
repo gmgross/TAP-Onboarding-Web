@@ -1,10 +1,7 @@
 import React, {useState} from 'react'
-import {Modal, Container, TextField, Button, InputAdornment} from '@mui/material/'
+import { Container, TextField, Button, InputAdornment} from '@mui/material/'
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
-
 import AlertModal from '../components/AlertModal';
-
-
 
 const UserMail = ({ nextStep, handleChange, values }) => {
     const urlOriginal = 'https://api.qa.auntap.io/public/check_user?email[equals]=' 
@@ -73,32 +70,31 @@ const UserMail = ({ nextStep, handleChange, values }) => {
                             <p class="text-gray-600 text-1xl text-center font-comfortaa">Ingresá tu mail</p>
                         </div>
                         <form class= "pt-5 pb-10" >  
-                                <TextField
-                                    error={error}
-                                    helperText={helper}
-                                    id="textMail"
-                                    variant="outlined"
-                                    placeholder="nombre@email.com.ar"
-                                    label="Email"
-                                    onChange={handleChange('email')}
-                                    onKeyUp={validateMail}
-                                    onBlur={validateMail}
-                                    defaultValue={values.email}
-                                    autoComplete="email"
-                                    fullWidth                      
-                                    InputProps={{
-                                        startAdornment: (
-                                            <InputAdornment position="start">
-                                            < MailOutlineOutlinedIcon />
-                                            </InputAdornment>
-                                        ),
-                                    }}
-                                    
-                                />
+                            <TextField
+                                error={error}
+                                helperText={helper}
+                                id="textMail"
+                                variant="outlined"
+                                placeholder="nombre@email.com.ar"
+                                label="Email"
+                                onChange={handleChange('email')}
+                                onKeyUp={validateMail}
+                                onBlur={validateMail}
+                                defaultValue={values.email}
+                                autoComplete="email"
+                                fullWidth                      
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                        < MailOutlineOutlinedIcon />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                                
+                            />
                             <div class = "pt-24 py-14">
                                 <Button 
                                     class="btn-continue"
-                                    //class="btn-continue"
                                     onClick={Continue} 
                                     type="submit" 
                                     variant="contained">
@@ -108,13 +104,13 @@ const UserMail = ({ nextStep, handleChange, values }) => {
                         </form>
                     </div>
                 </Container>
-            </form>
-            
-            <Modal open={openModal} onClose={() => setOpenModal(false)} >
-                <AlertModal closeModal={setOpenModal} 
-                    title={'Mail ya registrado'} 
-                    body={'Por favor, use otro mail para registrarse'} />
-            </Modal>
+            </form>           
+            <AlertModal 
+                open={openModal}
+                closeModal={setOpenModal} 
+                title={'Mail ya registrado'} 
+                body={'Por favor, use otro mail para registrarse'} 
+            /> 
         </div>
     )
 }
