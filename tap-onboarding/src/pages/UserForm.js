@@ -12,12 +12,17 @@ import UserPasswordConfirm from './UserPasswordConfirm';
 export default class UserForm extends Component {
 
     state = {
-        step: 1,
+        step: 5,
         email: '',
         password:'',
         confirmPassword: '', 
         phone: '',
         oauth_token: '',
+        oauth_token2: '',
+        oauth_token3: '',
+        oauth_token4: '',
+        oauth_token5: '',
+        oauth_token6: '',
         document_id:'',
         check_peype:'',
         first_name:'vacio',
@@ -45,8 +50,8 @@ export default class UserForm extends Component {
 
     render() {
         const { step } = this.state;
-        const { email, password, confirmPassword, phone, oauth_token, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person } = this.state;
-        const values = { email, password, confirmPassword, phone, oauth_token, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person}
+        const { email, password, confirmPassword, phone, oauth_token, oauth_token2, oauth_token3, oauth_token4, oauth_token5, oauth_token6, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person } = this.state;
+        const values = { email, password, confirmPassword, phone, oauth_token, oauth_token2, oauth_token3, oauth_token4, oauth_token5, oauth_token6, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person}
 
         switch (step) {
             case 1:

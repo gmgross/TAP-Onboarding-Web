@@ -4,6 +4,7 @@ import AlertModal from '../components/AlertModal';
 
 const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
     const urlOriginalBase = 'https://api.qa.auntap.io/public/check_user?phone[equals]=' 
+    const urlEnvioSMS     = 'https://api.qa.auntap.io/public/send_sms_code'
     var telefonoExistente;
 
     
@@ -43,6 +44,7 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
             await phoneExistDb()
             if (telefonoExistente === false ) { 
                 e.preventDefault();
+                sendSMS();
                 nextStep();
             }else{
                 e.preventDefault();
@@ -51,7 +53,16 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
         }
     }
 
-
+    const sendSMS = async() => {
+        const celular = '+549' + values.phone;
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phoneNumber: celular,
+                                   device_id: "test" })
+        };
+        const response = await fetch(urlEnvioSMS, requestOptions);
+    }
     const phoneExistDb = async() => {
         var url = urlOriginalBase + values.phone;
         const response = await fetch(url);
