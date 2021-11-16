@@ -14,11 +14,10 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
             nextStep();
         }
         const to = values.email;
-        const subject = "Gracias por registrarte"
-        const html = "HTML DE TAP" 
+        const template_id = "d-4b19647f44fc489d87ddef4e5937e66d" 
 
             try{
-                 axios.post("http://localhost:3000/api/mail", {to, subject, html})
+                 axios.post("http://localhost:3000/api/mail", {to, template_id})
             }catch(err){
             }
     }
