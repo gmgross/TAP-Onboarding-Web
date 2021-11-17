@@ -26,8 +26,8 @@ const UserEnd = ({ prevStep, values }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class="pt-2 pb-4">
-                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">¡ Felicitaciones, {values.first_name} !</p>
-                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">Ya tenes tu cuenta</p>
+                            <p class="text-secondary-500  text-xl text-center font-bold font-comfortaa">¡ Felicitaciones, {values.first_name} !</p>
+                            <p class="text-secondary-500  text-xl text-center font-bold font-comfortaa">Ya tenes tu cuenta</p>
                         </div>
 
                         <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-green-100">
@@ -48,40 +48,20 @@ const UserEnd = ({ prevStep, values }) => {
                                     <a href={' '} class='rounded-full bg-gray-300 hover:bg-gray-00 px-12 text-white font-comfortaa py-3'>
                                     Validar identidad </a>
                                 </div>
-
-                               {/*  <div class="py-2 pt-4">
-                                    <Button
-                                        class="rounded-full bg-gray-300 hover:bg-gray-00 px-12 text-white font-comfortaa py-2"
-                                        onClick={Continue}
-                                        type="submit"
-                                        variant="contained">
-                                            Validar identidad
-                                    </Button>
-                                </div> */}
-
+                               
                                 <div class="py-2 pt-4">
-                                    <a href={LINK_TRACKEABLE} class='rounded-full bg-indigo-900 hover:bg-indigo-800 px-12 text-white font-comfortaa py-3'>
+                                    <a href={LINK_TRACKEABLE} class='rounded-full bg-secondary-500 hover:bg-secondary-400 px-12 text-white font-comfortaa py-3'>
                                         Descargar la App </a>
                                 </div>
-
-                                {/* <div class="py-2 pt-4">
-                                    <Button
-                                        onClick={Continue}
-                                        type="submit"
-                                        variant="contained"
-                                        class=" rounded shadow rounded-full bg-gray-300 hover:bg-gray-00 px-12 text-white font-comfortaa py-2">
-                                            Descargar la App
-                                    </Button>
-                                </div> */}
-
+                               
                                 <div class="pb- pt-3">
-                                    <Button
+                                    {/* <Button
                                         onClick={Previous}
                                         type="submit"
                                         variant="contained"
                                         class="btn-previous">
                                             Volver
-                                    </Button>
+                                    </Button> */}
                                     
                                 </div>
 

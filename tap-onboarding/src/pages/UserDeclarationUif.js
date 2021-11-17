@@ -28,7 +28,7 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class="pt-5 pb-4">
-                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">
+                            <p class="text-secondary-500 500  text-xl text-center font-bold font-comfortaa">
                                 Declaraciones Juradas
                             </p>
                         </div>
@@ -41,7 +41,7 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
 
                         <form class="pt-9 pb-10 place-content-evenly">
                             <div class="flex items-center mt-1 flex rounded-md shadow-sm bg-indigo-200 place-content-evenly bg-cover">
-                                <label for="push-uif" class="text-sm font-medium text-indigo-800 font-comfortaa py-3 pr-1 ">
+                                <label for="push-uif" class="text-xs font-center text-indigo-800 break-words font-comfortaa py-3 pr-1 ">
                                     Si, soy sujeto obligado ante la UIF
                                 </label>
 
@@ -57,7 +57,7 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
                             </div>
 
                             <div class="flex items-center mt-1 flex rounded-md shadow-sm bg-indigo-200 place-content-evenly">
-                                <label for="push-uif2" class="text-sm font-medium text-indigo-800 break-words font-comfortaa py-3 ">
+                                <label for="push-uif2" class="text-xs font-center text-indigo-800 break-words font-comfortaa py-3 pr-1">
                                     No soy sujeto obligado ante la UIF
                                 </label>
 

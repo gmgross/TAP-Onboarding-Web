@@ -14,7 +14,7 @@ const AlertModal = ({ open, closeModal, title, body }) => {
                         </svg>
                     </div>
 
-                    <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">{title}</p>
+                    <p class="text-secondary-500  text-xl text-center font-bold font-comfortaa">{title}</p>
                         
                     <div class="mt-2 px-7 py-3">
                         <p class="text-sm text-gray-600 font-comfortaa">{body}</p>

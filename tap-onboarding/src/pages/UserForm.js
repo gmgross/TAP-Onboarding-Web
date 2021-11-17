@@ -25,8 +25,8 @@ export default class UserForm extends Component {
         oauth_token6: '',
         document_id:'',
         check_peype:'',
-        first_name:'vacio',
-        last_name:'',
+        first_name:'Carlos',
+        last_name:'Lorenzo',
         is_exposed_person:'0',
         is_uif_person:'0'        
     }

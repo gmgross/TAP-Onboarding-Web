@@ -80,7 +80,7 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class= "pt-6 pb-10">
-                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">
+                            <p class="text-secondary-500 500  text-xl text-center font-bold font-comfortaa">
                                 Ingresá tu celular</p>
                         </div>
 

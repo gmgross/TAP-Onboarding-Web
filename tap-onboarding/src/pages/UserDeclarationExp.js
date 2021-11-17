@@ -19,7 +19,7 @@ const UserDeclarationExp = ({ prevStep, nextStep, handleChange, values }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class="pt-5 pb-4">
-                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">Declaraciones Juradas</p>
+                            <p class="text-secondary-500 500  text-xl text-center font-bold font-comfortaa">Declaraciones Juradas</p>
                         </div>
 
                         <div class="pt-2 pb-1">
@@ -29,7 +29,7 @@ const UserDeclarationExp = ({ prevStep, nextStep, handleChange, values }) => {
                         </div>
                         <form class="pt-9 pb-10 place-content-evenly">
                             <div class="flex items-center mt-1 flex rounded-md shadow-sm bg-indigo-200 place-content-evenly bg-cover">
-                                <label for="push-expuesta1" class="text-sm font-medium font-comfortaa text-indigo-800">
+                                <label for="push-expuesta1" class="text-xs font-medium font-comfortaa text-indigo-800 py-1 pr-1">
                                     Si, soy una persona expuesta Politicamente
                                 </label>
                                 <input
@@ -42,7 +42,7 @@ const UserDeclarationExp = ({ prevStep, nextStep, handleChange, values }) => {
                                     onChange={handleChange('is_exposed_person')} />
                             </div>
                             <div class="flex items-center mt-1 flex rounded-md shadow-sm bg-indigo-200 place-content-evenly">
-                                <label for="push-expuesta2" class="text-sm font-medium font-comfortaa text-indigo-800 ">
+                                <label for="push-expuesta2" class="text-xs font-medium font-comfortaa text-indigo-800 py-1 pr-1 ">
                                     No soy una persona expuesta Politicamente
                                 </label>
                                 <input

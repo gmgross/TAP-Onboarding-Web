@@ -7,10 +7,10 @@
 
 @layer components {
   .btn-continue {
-    @apply rounded-full bg-indigo-900 hover:bg-indigo-800 px-20 text-white font-comfortaa py-2;
+    @apply rounded-full bg-secondary-500 hover:bg-secondary-400 px-20 text-white font-comfortaa py-2;
   }
   .btn-previous {
-    @apply rounded-full bg-green-500 hover:bg-green-400 px-24 text-white font-comfortaa py-2;
+    @apply rounded-full bg-primary-500 hover:bg-primary-400 px-24 text-white font-comfortaa py-2;
   }
 }
 

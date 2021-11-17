@@ -50,7 +50,7 @@ const UserPassword = ({ prevStep, nextStep, handleChange, values }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class= "pt-6 pb-10">
-                            <p class="text-indigo-900 text-xl text-center font-bold font-comfortaa">Creá tu clave de acceso</p>
+                            <p class="text-secondary-500  text-xl text-center font-bold font-comfortaa">Creá tu clave de acceso</p>
                         </div>
                         <div class= "pt-6 pb-5">
                             <p class="text-gray-600 text-1xl text-center font-comfortaa">Ingresá tu clave numérica</p>
