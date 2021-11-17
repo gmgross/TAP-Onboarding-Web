@@ -4,7 +4,7 @@ import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import AlertModal from '../components/AlertModal';
 
 const UserMail = ({ nextStep, handleChange, values }) => {
-    const urlOriginal = 'https://api.qa.auntap.io/public/check_user?email[equals]=' 
+    const urlOriginal = process.env.REACT_APP_CHECK_EMAIL;
     var mailExistente=1;
 
     const [error, setError] = useState(false);

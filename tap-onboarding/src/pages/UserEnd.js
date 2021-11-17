@@ -1,8 +1,8 @@
 import React from 'react'
-import { Container, Button } from '@mui/material/'
+import { Container } from '@mui/material/'
 
 
-const UserEnd = ({ prevStep, values }) => {
+const UserEnd = ({ values }) => {
 
     const LINK_TRACKEABLE = 'https://www.google.com'
     // const LINK_TRACKEABLE = 'https://click.auntap.com/5uO5/onboardingwebhttps://click.auntap.com/5uO5/onboardingweb'
@@ -12,10 +12,10 @@ const UserEnd = ({ prevStep, values }) => {
         nextStep();
     } */
 
-    const Previous = e => {
+/*     const Previous = e => {
         e.preventDefault();
         prevStep();
-    }
+    } */
 /*
     const opcionUif = Boolean(Number(values.is_uif_person)); //{opcionPersonaExpuesta +''}
     const opcionPersonaExpuesta = Boolean(Number(values.is_exposed_person));//{opcionUif+''}

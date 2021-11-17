@@ -1,9 +1,9 @@
 import React,  {useState, useRef} from 'react'
-import { Modal, Container, TextField, Button  } from '@mui/material/'
+import { Container, TextField, Button  } from '@mui/material/'
 import AlertModal from '../components/AlertModal';
 const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => {
 
-    const urlEnvioSMS     = 'https://api.qa.auntap.io/public/check_code';
+    const urlEnvioSMS     = process.env.REACT_APP_CHECK_CODE 
     var checkeo = false;
     const [error, setError] = useState(false);
     const [helper, setHelper] = useState('');
@@ -44,11 +44,11 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
         checkeo = json.isValid;
     }
 
- /*    const clickEvent = (first, last) =>{
+    const clickEvent = (first, last) =>{
         if (first.value.length) {
             document.getElementById(last).focus();
         }
-    } */ 
+    }  
 
     const inputRef1 = useRef();
 
@@ -64,8 +64,8 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
                 </div> 
                 <form class= "pt-5 pb-10">        
                     <div class="flex flex-box pl-2 space-x-2">     
-                        <TextField variant="outlined" /* id='1' onKeyUp={clickEvent(this, '2')} */ inputProps={{ maxLength:1 }} onChange={handleChange([...values.oauth_token, 'oauth_token'])}/>
-                        <TextField variant="outlined" /* id='2' onKeyUp={clickEvent(this, '3')} */ inputProps={{ maxLength:1 }} onChange={handleChange([...values.oauth_token, 'oauth_token'])} />
+                        <TextField variant="outlined" /* id='1' onKeyUp={clickEvent(this, '2')} */ inputProps={{ maxLength:1 }} onChange={handleChange('oauth_token')}/>
+                        <TextField variant="outlined" /* id='2' onKeyUp={clickEvent(this, '3')} */ inputProps={{ maxLength:1 }} onChange={handleChange('oauth_token2')} />
                         <TextField variant="outlined" /* id='3' onKeyUp={clickEvent(this, '4')} */ inputProps={{ maxLength:1 }} onChange={handleChange('oauth_token3')} />
                         <TextField variant="outlined" /* id='4' onKeyUp={clickEvent(this, '5')} */ inputProps={{ maxLength:1 }} onChange={handleChange('oauth_token4')} />
                         <TextField variant="outlined" /* id='5' onKeyUp={clickEvent(this, '6')} */ inputProps={{ maxLength:1 }} onChange={handleChange('oauth_token5')} />

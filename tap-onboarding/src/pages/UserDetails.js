@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import { Modal, Container, TextField, Button } from '@mui/material/'
+import { Container, TextField, Button } from '@mui/material/'
 import AlertModal from '../components/AlertModal';
 
 const UserDetails = ({ prevStep, nextStep, handleChange, values }) => {
-    const urlOriginalBase = 'https://api.qa.auntap.io/public/check_user?document_id[equals]=' 
+    const urlOriginalBase = process.env.REACT_APP_CHECK_DOCUMENT_ID 
     var dniExistente;
     
     const [error, setError] = useState(false);

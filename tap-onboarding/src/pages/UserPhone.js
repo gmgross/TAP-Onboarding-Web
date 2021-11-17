@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import { Modal, Container, TextField, Button } from '@mui/material/'
+import { Container, TextField, Button } from '@mui/material/'
 import AlertModal from '../components/AlertModal';
 
 const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
-    const urlOriginalBase = 'https://api.qa.auntap.io/public/check_user?phone[equals]=' 
-    const urlEnvioSMS     = 'https://api.qa.auntap.io/public/send_sms_code'
+    const urlOriginalBase = process.env.REACT_APP_CHECK_PHONE
+    const urlEnvioSMS     = process.env.REACT_APP_CHECK_SEND_SMS_CODE
     var telefonoExistente;
 
     
