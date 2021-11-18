@@ -33,9 +33,6 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
             }
     }
     const createUser = async() =>{
-        values.phone = '1164172212';
-        values.email = 'germanmartinezgros@outlook.com'
-        values.password = '1234'
         const celular = '+549' + values.phone;
         var is_exposed_person = "true", street_number = "", street = "",department ="", aux=0;
         const direccion = values.peypeData.address.split(",")
