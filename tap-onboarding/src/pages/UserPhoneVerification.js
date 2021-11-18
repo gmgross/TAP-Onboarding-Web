@@ -1,27 +1,30 @@
-import React,  {useState, useRef} from 'react'
-import { Container, TextField, Button  } from '@mui/material/'
+import React, { useState } from 'react'
+import { Container, TextField, Button } from '@mui/material/'
 import AlertModal from '../components/AlertModal';
 const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => {
 
-    const urlEnvioSMS     = process.env.REACT_APP_CHECK_CODE 
+ 
+    const inputP = { pattern: "[0-9]", maxLength: 1 }
+
+    const urlEnvioSMS = process.env.REACT_APP_CHECK_CODE
     var checkeo = false;
     const [error, setError] = useState(false);
     const [helper, setHelper] = useState('');
     const [openModal, setOpenModal] = useState(false);
 
-    const [oauth_token, setOauth_token] = useState([0,1]);
+    const [oauth_token, setOauth_token] = useState([0, 1]);
 
-    const Continue = async(e) => {
+    const Continue = async (e) => {
         setError(false);
         setHelper('');
         e.preventDefault();
         await verificacionCodigo();
-        if(checkeo){
+        if (checkeo) {
             nextStep();
-        }else{
+        } else {
             setOpenModal(true);
         }
-        
+
     }
 
     const Previous = e => {
@@ -29,72 +32,166 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
         prevStep();
     }
 
-    const verificacionCodigo = async() => {
+    const verificacionCodigo = async () => {
         const celular = '+549' + values.phone;
-        const codigo = values.oauth_token + values.oauth_token2 + values.oauth_token3 + values.oauth_token4 + values.oauth_token5 + values.oauth_token6; 
+        const codigo = values.oauth_token + values.oauth_token2 + values.oauth_token3 + values.oauth_token4 + values.oauth_token5 + values.oauth_token6;
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ phone_number: celular,
-                                   device_id: "test",
-                                   code: codigo })
+            body: JSON.stringify({
+                phone_number: celular,
+                device_id: "test",
+                code: codigo
+            })
         };
         const response = await fetch(urlEnvioSMS, requestOptions);
         const json = await response.json();
         checkeo = json.isValid;
     }
 
-    const clickEvent = (first, last) =>{
+    const clickEvent = (first, last) => {
         if (first.value.length) {
             document.getElementById(last).focus();
         }
-    }  
+    }
 
-    const inputRef1 = useRef();
+
+
+
+    function handleChangePIN(e) {
+        const { maxLength, value, name } = e.target;
+        const [fieldName, fieldIndex] = name.split("-");
+
+        let fieldIntIndex = parseInt(fieldIndex, 10);
+
+        // Check if no of char in field == maxlength
+        if (value.length >= maxLength) {
+
+            // It should not be last input field
+            if (fieldIntIndex < 6) {
+
+                // Get the next input field using it's name
+                const nextfield = document.querySelector(
+                    `input[name=field-${fieldIntIndex + 1}]`
+                );
+
+                // If found, focus the next field
+                if (nextfield !== null) {
+                    nextfield.focus();
+                }
+            }
+        }
+    }
 
     return (<div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">
-    <form class="w-full bg-white rounded shadow-2xl p-8 m-4 md:max-w-sm md:mx-auto">
-        <Container component="main" maxWidth="xs">
-            <div>
-                <div class= "pt-6 pb-10">
-                    <p class="text-secondary-500  text-xl text-center font-bold font-comfortaa">Ingresá el código</p>
+        <form class="w-full bg-white rounded shadow-2xl p-8 m-4 md:max-w-sm md:mx-auto">
+            <Container component="main" maxWidth="xs">
+                <div>
+                    <div class="pt-6 pb-10">
+                        <p class="text-secondary-500  text-xl text-center font-bold font-comfortaa">Ingresá el código</p>
+                    </div>
+                    <div class="pt-6 pb-5">
+                        <p class="text-gray-600 text-1xl text-center  font-comfortaa">Te lo enviamos por mensaje de texto</p>
+                    </div>
+                    <form class="pt-5 pb-10">
+                        <div class="flex flex-box pl-2 space-x-2">
+                            <TextField
+                                name="field-1" length="1"
+                                type="tel" pattern="[0-9]"
+                                size="1"
+                                variant="outlined"
+                                placeholder=""
+                                onChange={handleChange('oauth_token')}
+                                defaultValue={values.oauth_token}
+                                class=""
+                                inputProps={inputP}
+                                onKeyUp={e => handleChangePIN(e)}
+
+                                onBlur={e => handleChangePIN(e)}
+
+
+                            />
+                            <TextField
+                                name="field-2" length="1"
+                                variant="outlined"
+                                placeholder=""
+                                onChange={handleChange('oauth_token2')}
+                                defaultValue={values.oauth_token2}
+                                class=""
+                                inputProps={inputP}
+                                onKeyUp={e => handleChangePIN(e)}
+                                onBlur={e => handleChangePIN(e)}
+
+                            />
+                            <TextField
+                                name="field-3" length="1"
+                                variant="outlined"
+                                placeholder=""
+                                onChange={handleChange('oauth_token3')}
+                                defaultValue={values.oauth_token3}
+                                class=""
+                                inputProps={inputP}
+                                onKeyUp={e => handleChangePIN(e)}
+                                onBlur={e => handleChangePIN(e)}
+                            />
+                            <TextField
+                                name="field-4" length="1"
+                                variant="outlined"
+                                placeholder=""
+                                onChange={handleChange('oauth_token4')}
+                                defaultValue={values.oauth_token4}
+                                class=""
+                                inputProps={inputP}
+                                onKeyUp={e => handleChangePIN(e)}
+                                onBlur={e => handleChangePIN(e)}
+                            />
+                            <TextField
+                                name="field-5" length="1"
+                                variant="outlined"
+                                placeholder=""
+                                onChange={handleChange('oauth_token5')}
+                                defaultValue={values.oauth_token5}
+                                class=""
+                                inputProps={inputP}
+                                onKeyUp={e => handleChangePIN(e)}
+                                onBlur={e => handleChangePIN(e)}
+                            />
+                            <TextField
+                                name="field-6" length="1"
+                                variant="outlined"
+                                placeholder=""
+                                onChange={handleChange('oauth_token6')}
+                                defaultValue={values.oauth_token6}
+                                class=""
+                                inputProps={inputP}
+                                onKeyUp={e => handleChangePIN(e)}
+                                onBlur={e => handleChangePIN(e)}
+                            />
+                        </div>
+                        <div class="pt-14 flex flex-col">
+                            <div class="pb-2 pt-4">
+                                <Button onClick={Continue} type="submit" variant="contained" class="btn-continue">
+                                    Siguiente
+                                </Button>
+                            </div>
+                            <div class="pb-2">
+                                <Button onClick={Previous} type="submit" variant="contained" class="btn-previous">
+                                    Volver
+                                </Button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class= "pt-6 pb-5">
-                    <p class="text-gray-600 text-1xl text-center  font-comfortaa">Te lo enviamos por mensaje de texto {values.oauth_token}</p>
-                </div> 
-                <form class= "pt-5 pb-10">        
-                    <div class="flex flex-box pl-2 space-x-2">     
-                        <TextField variant="outlined" /* id='1' onKeyUp={clickEvent(this, '2')} */ inputProps={{ maxLength:1 }} onChange={handleChange('oauth_token')}/>
-                        <TextField variant="outlined" /* id='2' onKeyUp={clickEvent(this, '3')} */ inputProps={{ maxLength:1 }} onChange={handleChange('oauth_token2')} />
-                        <TextField variant="outlined" /* id='3' onKeyUp={clickEvent(this, '4')} */ inputProps={{ maxLength:1 }} onChange={handleChange('oauth_token3')} />
-                        <TextField variant="outlined" /* id='4' onKeyUp={clickEvent(this, '5')} */ inputProps={{ maxLength:1 }} onChange={handleChange('oauth_token4')} />
-                        <TextField variant="outlined" /* id='5' onKeyUp={clickEvent(this, '6')} */ inputProps={{ maxLength:1 }} onChange={handleChange('oauth_token5')} />
-                        <TextField variant="outlined" id='6'  inputProps={{ maxLength:1 }} onChange={handleChange('oauth_token6')}/>
-                    </div>
-                    <div class = "pt-14 flex flex-col">
-                        <div class="pb-2 pt-4">
-                        <Button onClick={Continue} type="submit" variant="contained" class="btn-continue">
-                                Siguiente
-                        </Button>
-                        </div>
-                        <div class = "pb-2">
-                        <Button onClick={Previous} type="submit" variant="contained" class="btn-previous">
-                                Volver
-                        </Button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </Container>
-        <AlertModal 
-            open={openModal}
-            closeModal={setOpenModal} 
-            title={'El codigo no coincide'} 
-            body={'Por favor, intente nuevamente'} 
-        />
-        
-    </form>
-</div>
+            </Container>
+            <AlertModal
+                open={openModal}
+                closeModal={setOpenModal}
+                title={'El codigo no coincide'}
+                body={'Por favor, intente nuevamente'}
+            />
+
+        </form>
+    </div>
 
 
 
