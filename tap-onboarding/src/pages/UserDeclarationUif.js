@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Button } from '@mui/material/'
+import { Container } from '@mui/material/'
 import axios from "axios"
 
 const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
@@ -10,16 +10,16 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
     }
     const Continue = e => {
         e.preventDefault()
-        if(values.is_uif_person) {
+        if (values.is_uif_person) {
             nextStep();
         }
         const to = values.email;
-        const template_id = "d-4b19647f44fc489d87ddef4e5937e66d" 
+        const template_id = "d-4b19647f44fc489d87ddef4e5937e66d"
 
-            try{
-                 axios.post("http://localhost:3000/api/mail", {to, template_id})
-            }catch(err){
-            }
+        try {
+            axios.post("http://localhost:3000/api/mail", { to, template_id })
+        } catch (err) {
+        }
     }
 
     return (
@@ -75,20 +75,20 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
 
                             <div class="pt-11 flex flex-col">
                                 <div class="pt-1 pb-2">
-                                    <Button class="btn-continue" 
+                                    <button class="btn-continue"
                                         onClick={Continue}
-                                        type="submit" 
-                                        variant="contained"> 
-                                            Declarar
-                                    </Button>
+                                        type="submit"
+                                        variant="contained">
+                                        Declarar
+                                    </button>
                                 </div>
                                 <div class="pb-1">
-                                    <Button class="btn-previous"
+                                    <button class="btn-previous"
                                         onClick={Previous}
                                         type="submit"
                                         variant="contained">
                                         Volver
-                                    </Button>
+                                    </button>
                                 </div>
                             </div>
                         </form>

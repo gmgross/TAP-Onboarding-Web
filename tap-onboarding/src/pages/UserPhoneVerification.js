@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, TextField, Button } from '@mui/material/'
+import { Container, TextField } from '@mui/material/'
 import AlertModal from '../components/AlertModal';
 const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => {
 
@@ -18,13 +18,13 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
         setError(false);
         setHelper('');
         e.preventDefault();
-         await verificacionCodigo();
+        await verificacionCodigo();
         if (checkeo) {
-        handleChange('validated')
-        nextStep();
+            handleChange('validated')
+            nextStep();
         } else {
-          setOpenModal(true);
-         }
+            setOpenModal(true);
+        }
 
     }
 
@@ -176,14 +176,14 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
                         </div>
                         <div class="pt-14 flex flex-col">
                             <div class="pb-2 pt-4">
-                                <Button onClick={Continue} type="submit" variant="contained" class="btn-continue">
+                                <button onClick={Continue} type="submit" variant="contained" class="btn-continue">
                                     Siguiente
-                                </Button>
+                                </button>
                             </div>
                             <div class="pb-2">
-                                <Button onClick={Previous} type="submit" variant="contained" class="btn-previous">
+                                <button onClick={Previous} type="submit" variant="contained" class="btn-previous">
                                     Volver
-                                </Button>
+                                </button>
                             </div>
                         </div>
                     </form>

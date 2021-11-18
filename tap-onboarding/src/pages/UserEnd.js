@@ -7,19 +7,19 @@ const UserEnd = ({ values }) => {
     const LINK_TRACKEABLE = 'https://www.google.com'
     // const LINK_TRACKEABLE = 'https://click.auntap.com/5uO5/onboardingwebhttps://click.auntap.com/5uO5/onboardingweb'
 
-/*     const Continue = e => {
-        e.preventDefault();
-        nextStep();
-    } */
+    /*     const Continue = e => {
+            e.preventDefault();
+            nextStep();
+        } */
 
-/*     const Previous = e => {
-        e.preventDefault();
-        prevStep();
-    } */
-/*
-    const opcionUif = Boolean(Number(values.is_uif_person)); //{opcionPersonaExpuesta +''}
-    const opcionPersonaExpuesta = Boolean(Number(values.is_exposed_person));//{opcionUif+''}
-*/
+    /*     const Previous = e => {
+            e.preventDefault();
+            prevStep();
+        } */
+    /*
+        const opcionUif = Boolean(Number(values.is_uif_person)); //{opcionPersonaExpuesta +''}
+        const opcionPersonaExpuesta = Boolean(Number(values.is_exposed_person));//{opcionUif+''}
+    */
     return (
         <div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">
             <form class="w-full bg-white rounded shadow-2xl p-8 m-4 md:max-w-sm md:mx-auto h-auto" >
@@ -46,23 +46,23 @@ const UserEnd = ({ values }) => {
                             <div class="pt-2 flex flex-col">
                                 <div class="py-2 pt-4">
                                     <a href={' '} class='rounded-full bg-gray-300 hover:bg-gray-00 px-12 text-white font-comfortaa py-3'>
-                                    Validar identidad </a>
+                                        Validar identidad </a>
                                 </div>
-                               
+
                                 <div class="py-2 pt-4">
                                     <a href={LINK_TRACKEABLE} class='rounded-full bg-secondary-500 hover:bg-secondary-400 px-12 text-white font-comfortaa py-3'>
                                         Descargar la App </a>
                                 </div>
-                               
+
                                 <div class="pb- pt-3">
-                                    {/* <Button
+                                    {/* <button
                                         onClick={Previous}
                                         type="submit"
                                         variant="contained"
                                         class="btn-previous">
                                             Volver
-                                    </Button> */}
-                                    
+                                    </button> */}
+
                                 </div>
 
                             </div>

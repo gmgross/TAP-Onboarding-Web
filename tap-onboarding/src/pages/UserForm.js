@@ -12,10 +12,10 @@ import UserPasswordConfirm from './UserPasswordConfirm';
 export default class UserForm extends Component {
 
     state = {
-        step: 6,
+        step: 1,
         email: '',
-        password:'',
-        confirmPassword: '', 
+        password: '',
+        confirmPassword: '',
         phone: '',
         oauth_token: '',
         oauth_token2: '',
@@ -24,13 +24,13 @@ export default class UserForm extends Component {
         oauth_token5: '',
         oauth_token6: '',
         validated: '',
-        document_id:'',
-        check_peype:'',
-        first_name:'Carlos',
-        last_name:'Lorenzo',
-        is_exposed_person:'0',
-        is_uif_person:'0',
-        peypeData:{
+        document_id: '',
+        check_peype: '',
+        first_name: '',
+        last_name: '',
+        is_exposed_person: '0',
+        is_uif_person: '0',
+        peypeData: {
             activity_type: '',
             address: '',
             birthdate: "",
@@ -44,7 +44,7 @@ export default class UserForm extends Component {
             postal_address: '',
             province: ''
         },
-        peypeData2:{
+        peypeData2: {
             activity_type: '',
             address: '',
             birthdate: "",
@@ -63,52 +63,52 @@ export default class UserForm extends Component {
     // vuelve al paso anterior
     prevStep = () => {
         const { step, validated } = this.state;
-        if (validated == 'X'){
-            if ( step == 6 ){
+        if (validated == 'X') {
+            if (step == 6) {
                 this.setState({ step: step - 3 });
-            } else{
+            } else {
                 this.setState({ step: step - 1 });
             }
-            
-        }else{
+
+        } else {
             this.setState({ step: step - 1 });
         }
     }
 
     // proceda al siguiente paso
     nextStep = () => {
-        const { step,validated } = this.state;
-        
+        const { step, validated } = this.state;
 
-        if (validated == 'X'){
-            if ( step == 3 ){
+
+        if (validated == 'X') {
+            if (step == 3) {
                 this.setState({ step: step + 3 });
-            } else{
+            } else {
                 this.setState({ step: step + 1 });
             }
-        }else{
-            if ( step == 5 ){ this.state.validated = 'X'}
-                this.setState({ step: step + 1 });
+        } else {
+            if (step == 5) { this.state.validated = 'X' }
+            this.setState({ step: step + 1 });
         }
     }
 
     // manejar cambio de campo 
     handleChange = input => e => {
         this.setState({ [input]: e.target.value });
-        if (input == 'validated'){
-            this.setState({[input]: 'X'});
+        if (input == 'validated') {
+            this.setState({ [input]: 'X' });
         }
     }
 
     render() {
         const { step } = this.state;
-        const { email, password, confirmPassword, phone, oauth_token, oauth_token2, oauth_token3, oauth_token4, oauth_token5, oauth_token6, validated, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person, peypeData, peypeData2  } = this.state;
-        const values = { email, password, confirmPassword, phone, oauth_token, oauth_token2, oauth_token3, oauth_token4, oauth_token5, oauth_token6, validated, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person, peypeData, peypeData2}
+        const { email, password, confirmPassword, phone, oauth_token, oauth_token2, oauth_token3, oauth_token4, oauth_token5, oauth_token6, validated, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person, peypeData, peypeData2 } = this.state;
+        const values = { email, password, confirmPassword, phone, oauth_token, oauth_token2, oauth_token3, oauth_token4, oauth_token5, oauth_token6, validated, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person, peypeData, peypeData2 }
 
         switch (step) {
             case 1:
                 return (
-                    <UserMail 
+                    <UserMail
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
@@ -130,8 +130,8 @@ export default class UserForm extends Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
-                     />
-                )    
+                    />
+                )
             case 4:
                 return (
                     <UserPhone
@@ -170,7 +170,7 @@ export default class UserForm extends Component {
                 )
             case 8:
                 return (
-                    <UserDeclarationExp 
+                    <UserDeclarationExp
                         prevStep={this.prevStep}
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
@@ -186,7 +186,7 @@ export default class UserForm extends Component {
                         values={values}
                     />
                 )
-                
+
             case 10:
                 return (
                     <UserEnd
@@ -194,7 +194,7 @@ export default class UserForm extends Component {
                         handleChange={this.handleChange}
                         values={values}
                     />
-                )    
+                )
             default:
             // do nothing
         }

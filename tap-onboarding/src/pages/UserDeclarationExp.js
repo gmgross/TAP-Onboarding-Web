@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Button } from '@mui/material/'
+import { Container } from '@mui/material/'
 
 const UserDeclarationExp = ({ prevStep, nextStep, handleChange, values }) => {
 
@@ -59,20 +59,20 @@ const UserDeclarationExp = ({ prevStep, nextStep, handleChange, values }) => {
 
                             <div class="pt-10 flex flex-col">
                                 <div class="pt-3 pb-2">
-                                    <Button class="btn-continue"
+                                    <button class="btn-continue"
                                         onClick={Continue}
                                         type="submit"
                                         variant="contained">
                                         Siguiente
-                                    </Button>
+                                    </button>
                                 </div>
                                 <div class="pb-2">
-                                    <Button
+                                    <button
                                         class="btn-previous" onClick={Previous}
                                         type="submit"
                                         variant="contained">
                                         Volver
-                                    </Button>
+                                    </button>
                                 </div>
                             </div>
                         </form>
