@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from '@mui/material/'
 import axios from "axios"
-
+ 
 const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
 
     const Previous = e => {
