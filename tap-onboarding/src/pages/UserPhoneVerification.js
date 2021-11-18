@@ -3,8 +3,8 @@ import { Container, TextField, Button } from '@mui/material/'
 import AlertModal from '../components/AlertModal';
 const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => {
 
- 
-    const inputP = { pattern: "[0-9]", maxLength: 1 }
+
+    const inputP = { pattern: "[0-9]*", maxLength: 1 }
 
     const urlEnvioSMS = process.env.REACT_APP_CHECK_CODE
     var checkeo = false;
@@ -18,13 +18,13 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
         setError(false);
         setHelper('');
         e.preventDefault();
-        await verificacionCodigo();
+         await verificacionCodigo();
         if (checkeo) {
-            handleChange('validated')
-            nextStep();
+        handleChange('validated')
+        nextStep();
         } else {
-            setOpenModal(true);
-        }
+          setOpenModal(true);
+         }
 
     }
 
@@ -50,15 +50,6 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
         checkeo = json.isValid;
     }
 
-    const clickEvent = (first, last) => {
-        if (first.value.length) {
-            document.getElementById(last).focus();
-        }
-    }
-
-
-
-
     function handleChangePIN(e) {
         const { maxLength, value, name } = e.target;
         const [fieldName, fieldIndex] = name.split("-");
@@ -82,6 +73,25 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
                 }
             }
         }
+
+        if (value.length == 0) {
+
+            // It should not be first input field
+            if (fieldIntIndex > 1) {
+
+                // Get the prev input field using it's name
+                const prevfield = document.querySelector(
+                    `input[name=field-${fieldIntIndex - 1}]`
+                );
+
+                // If found, focus the next field
+                if (prevfield !== null) {
+                    prevfield.focus();
+
+                }
+
+            }
+        }
     }
 
     return (<div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">
@@ -98,8 +108,7 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
                         <div class="flex flex-box pl-2 space-x-2">
                             <TextField
                                 name="field-1" length="1"
-                                type="tel" pattern="[0-9]"
-                                size="1"
+                                type="text"
                                 variant="outlined"
                                 placeholder=""
                                 onChange={handleChange('oauth_token')}
@@ -107,13 +116,11 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
                                 class=""
                                 inputProps={inputP}
                                 onKeyUp={e => handleChangePIN(e)}
-
-                                onBlur={e => handleChangePIN(e)}
-
-
                             />
+
                             <TextField
                                 name="field-2" length="1"
+                                type="text"
                                 variant="outlined"
                                 placeholder=""
                                 onChange={handleChange('oauth_token2')}
@@ -121,11 +128,10 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
                                 class=""
                                 inputProps={inputP}
                                 onKeyUp={e => handleChangePIN(e)}
-                                onBlur={e => handleChangePIN(e)}
-
                             />
                             <TextField
                                 name="field-3" length="1"
+                                type="text"
                                 variant="outlined"
                                 placeholder=""
                                 onChange={handleChange('oauth_token3')}
@@ -133,10 +139,10 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
                                 class=""
                                 inputProps={inputP}
                                 onKeyUp={e => handleChangePIN(e)}
-                                onBlur={e => handleChangePIN(e)}
                             />
                             <TextField
                                 name="field-4" length="1"
+                                type="text"
                                 variant="outlined"
                                 placeholder=""
                                 onChange={handleChange('oauth_token4')}
@@ -144,10 +150,10 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
                                 class=""
                                 inputProps={inputP}
                                 onKeyUp={e => handleChangePIN(e)}
-                                onBlur={e => handleChangePIN(e)}
                             />
                             <TextField
                                 name="field-5" length="1"
+                                type="text"
                                 variant="outlined"
                                 placeholder=""
                                 onChange={handleChange('oauth_token5')}
@@ -155,10 +161,10 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
                                 class=""
                                 inputProps={inputP}
                                 onKeyUp={e => handleChangePIN(e)}
-                                onBlur={e => handleChangePIN(e)}
                             />
                             <TextField
                                 name="field-6" length="1"
+                                type="text"
                                 variant="outlined"
                                 placeholder=""
                                 onChange={handleChange('oauth_token6')}
@@ -166,7 +172,6 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
                                 class=""
                                 inputProps={inputP}
                                 onKeyUp={e => handleChangePIN(e)}
-                                onBlur={e => handleChangePIN(e)}
                             />
                         </div>
                         <div class="pt-14 flex flex-col">
