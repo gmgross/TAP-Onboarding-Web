@@ -20,6 +20,7 @@ const UserPhoneVerification = ({ prevStep, nextStep, handleChange, values }) => 
         e.preventDefault();
         await verificacionCodigo();
         if (checkeo) {
+            handleChange('validated')
             nextStep();
         } else {
             setOpenModal(true);

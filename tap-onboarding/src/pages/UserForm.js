@@ -12,7 +12,7 @@ import UserPasswordConfirm from './UserPasswordConfirm';
 export default class UserForm extends Component {
 
     state = {
-        step: 1,
+        step: 6,
         email: '',
         password:'',
         confirmPassword: '', 
@@ -23,40 +23,92 @@ export default class UserForm extends Component {
         oauth_token4: '',
         oauth_token5: '',
         oauth_token6: '',
+        validated: '',
         document_id:'',
         check_peype:'',
         first_name:'Carlos',
         last_name:'Lorenzo',
         is_exposed_person:'0',
-        is_uif_person:'0'        
+        is_uif_person:'0',
+        peypeData:{
+            activity_type: '',
+            address: '',
+            birthdate: "",
+            cuit: "",
+            dni: '',
+            earnings_predictor: "",
+            first_name: "",
+            full_name: "",
+            gender: "",
+            last_name: "",
+            postal_address: '',
+            province: ''
+        },
+        peypeData2:{
+            activity_type: '',
+            address: '',
+            birthdate: "",
+            cuit: "",
+            dni: '',
+            earnings_predictor: "",
+            first_name: "",
+            full_name: "",
+            gender: "",
+            last_name: "",
+            postal_address: '',
+            province: ''
+        }
     }
 
     // vuelve al paso anterior
     prevStep = () => {
-        const { step } = this.state;
-        this.setState({ step: step - 1 });
+        const { step, validated } = this.state;
+        if (validated == 'X'){
+            if ( step == 6 ){
+                this.setState({ step: step - 3 });
+            } else{
+                this.setState({ step: step - 1 });
+            }
+            
+        }else{
+            this.setState({ step: step - 1 });
+        }
     }
 
     // proceda al siguiente paso
     nextStep = () => {
-        const { step } = this.state;
-        this.setState({ step: step + 1 });
+        const { step,validated } = this.state;
+        
+
+        if (validated == 'X'){
+            if ( step == 3 ){
+                this.setState({ step: step + 3 });
+            } else{
+                this.setState({ step: step + 1 });
+            }
+        }else{
+            if ( step == 5 ){ this.state.validated = 'X'}
+                this.setState({ step: step + 1 });
+        }
     }
 
     // manejar cambio de campo 
     handleChange = input => e => {
         this.setState({ [input]: e.target.value });
+        if (input == 'validated'){
+            this.setState({[input]: 'X'});
+        }
     }
 
     render() {
         const { step } = this.state;
-        const { email, password, confirmPassword, phone, oauth_token, oauth_token2, oauth_token3, oauth_token4, oauth_token5, oauth_token6, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person } = this.state;
-        const values = { email, password, confirmPassword, phone, oauth_token, oauth_token2, oauth_token3, oauth_token4, oauth_token5, oauth_token6, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person}
+        const { email, password, confirmPassword, phone, oauth_token, oauth_token2, oauth_token3, oauth_token4, oauth_token5, oauth_token6, validated, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person, peypeData, peypeData2  } = this.state;
+        const values = { email, password, confirmPassword, phone, oauth_token, oauth_token2, oauth_token3, oauth_token4, oauth_token5, oauth_token6, validated, document_id, check_peype, first_name, last_name, is_exposed_person, is_uif_person, peypeData, peypeData2}
 
         switch (step) {
             case 1:
                 return (
-                    <UserMail
+                    <UserMail 
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}

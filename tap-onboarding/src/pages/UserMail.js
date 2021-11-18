@@ -42,6 +42,7 @@ const UserMail = ({ nextStep, handleChange, values }) => {
             await mailExistDb()
             if (mailExistente === false ) { 
                 e.preventDefault();
+                // values.peypeData.address = 'calle falsa'
                 nextStep();
             }else{
                 e.preventDefault();
