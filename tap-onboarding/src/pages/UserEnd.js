@@ -1,25 +1,12 @@
 import React from 'react'
-import { Container,Button} from '@mui/material/'
+import { Container} from '@mui/material/'
 
 
-const UserEnd = ({ values, prevStep }) => {
+const UserEnd = ({ values }) => {
 
-    const LINK_TRACKEABLE = 'https://www.google.com'
-    // const LINK_TRACKEABLE = 'https://click.auntap.com/5uO5/onboardingwebhttps://click.auntap.com/5uO5/onboardingweb'
+    const LINK_TRACKEABLE = 'https://click.auntap.com/5uO5/onboardingwebhttps://click.auntap.com/5uO5/onboardingweb'
 
-    /*     const Continue = e => {
-            e.preventDefault();
-            nextStep();
-        } */
-
-    /*     const Previous = e => {
-            e.preventDefault();
-            prevStep();
-        } */
-    /*
-        const opcionUif = Boolean(Number(values.is_uif_person)); //{opcionPersonaExpuesta +''}
-        const opcionPersonaExpuesta = Boolean(Number(values.is_exposed_person));//{opcionUif+''}
-    */
+  
     return (
         <div class="flex items-center h-screen w-full bg-teal-lighter bg-gray-200">
             <form class="w-full bg-white rounded shadow-2xl p-8 m-4 md:max-w-sm md:mx-auto h-auto" >
