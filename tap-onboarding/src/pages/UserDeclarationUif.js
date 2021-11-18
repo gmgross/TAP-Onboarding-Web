@@ -1,25 +1,95 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Container } from '@mui/material/'
 import axios from "axios"
- 
+import AlertModal from '../components/AlertModal';
+
 const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
+    const urlOriginalBase = process.env.REACT_APP_REGISTER 
+    var terminarRegistro = false;
+    const [openModal, setOpenModal] = useState(false);
 
     const Previous = e => {
         e.preventDefault();
         prevStep();
     }
-    const Continue = e => {
+    const Continue = async(e) => {
         e.preventDefault()
-        if (values.is_uif_person) {
-            nextStep();
+        if(values.is_uif_person) {
+            await createUser()
+            if (terminarRegistro){
+                nextStep();
+            }else{
+                e.preventDefault();
+                setOpenModal(true);
+            }
+            
         }
         const to = values.email;
         const template_id = "d-4b19647f44fc489d87ddef4e5937e66d"
 
-        try {
-            axios.post("http://localhost:3000/api/mail", { to, template_id })
-        } catch (err) {
+            try{
+                 axios.post("http://localhost:3000/api/mail", {to, template_id})
+            }catch(err){
+            }
+    }
+    const createUser = async() =>{
+        values.phone = '1164172212';
+        values.email = 'germanmartinezgros@outlook.com'
+        values.password = '1234'
+        const celular = '+549' + values.phone;
+        var is_exposed_person = "true", street_number = "", street = "",department ="", aux=0;
+        const direccion = values.peypeData.address.split(",")
+        department = direccion[0];
+        const calleYNumero = direccion[1].split(" ");
+        const longitud = calleYNumero.length;
+        street_number = calleYNumero[longitud - 1];
+        do {
+            street = street + calleYNumero[aux];
+            aux++;
+        }while (aux < longitud - 1)
+        if(values.is_exposed_person == 0){
+            is_exposed_person = false;
         }
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({  phone:              celular,
+                                    email:              values.email,
+                                    password:           values.password,
+                                    username:           celular,
+                                    oauthtoken:         "oauthtoken",
+                                    first_name:         values.peypeData.first_name,
+                                    last_name:          values.peypeData.last_name,
+                                    document_id:        values.document_id,
+                                    is_exposed_person:  is_exposed_person,
+                                    address:            values.peypeData.address,
+                                    birthdate:          values.peypeData.birthdate,
+                                    cuit:               values.peypeData.cuit,
+                                    postal_address:     values.peypeData.postal_address,
+                                    province:           values.peypeData.province,
+                                    location: {
+                                        location: {
+                                            lat:        "",
+                                            lng:        ""
+                                        },
+                                        street_number:  street_number,
+                                        street:         street,
+                                        deparment:      department,
+                                        province:       values.peypeData.province,
+                                        country:        "AR",
+                                        postal_address: values.peypeData.postal_address,
+                                        address:        values.peypeData.address
+                                    },
+                                    province_id:        "",
+                                    nick:               "WEB",
+                                    device_id:          "00000000"
+                                })
+        };
+        const response = await fetch(urlOriginalBase, requestOptions);
+        if (response.status != 400){
+            terminarRegistro = true;
+        }
+        
     }
 
     return (
@@ -95,6 +165,12 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
                     </div>
                 </Container>
             </form>
+            <AlertModal 
+                open={openModal}
+                closeModal={setOpenModal} 
+                title={'Error en el registro'} 
+                body={'Por favor, intente nuevamente mas tarde'} 
+            /> 
         </div>
     )
 }

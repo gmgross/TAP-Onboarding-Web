@@ -1,8 +1,8 @@
 import React from 'react'
-import { Container } from '@mui/material/'
+import { Container,Button} from '@mui/material/'
 
 
-const UserEnd = ({ values }) => {
+const UserEnd = ({ values, prevStep }) => {
 
     const LINK_TRACKEABLE = 'https://www.google.com'
     // const LINK_TRACKEABLE = 'https://click.auntap.com/5uO5/onboardingwebhttps://click.auntap.com/5uO5/onboardingweb'
@@ -26,7 +26,7 @@ const UserEnd = ({ values }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class="pt-2 pb-4">
-                            <p class="text-secondary-500  text-xl text-center font-bold font-comfortaa">¡ Felicitaciones, {values.first_name} !</p>
+                            <p class="text-secondary-500  text-xl text-center font-bold font-comfortaa">¡ Felicitaciones, {values.peypeData.first_name} !</p>
                             <p class="text-secondary-500  text-xl text-center font-bold font-comfortaa">Ya tenes tu cuenta</p>
                         </div>
 
