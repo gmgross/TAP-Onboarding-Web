@@ -25,7 +25,7 @@ export default class UserForm extends Component {
         oauth_token6: '',
         validated: '',
         document_id: '',
-        check_peype: '',
+        check_peype: '1',
         first_name: '',
         last_name: '',
         is_exposed_person: '0',
@@ -98,6 +98,9 @@ export default class UserForm extends Component {
         if (input == 'validated') {
             this.setState({ [input]: 'X' });
         }
+        // if (input == 'check_peype') {
+        //     this.setState({ [input]: '2' });
+        // }
     }
 
     render() {

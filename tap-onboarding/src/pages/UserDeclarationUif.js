@@ -34,8 +34,13 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
     }
     const createUser = async() =>{
         const celular = '+549' + values.phone;
-        var is_exposed_person = "true", street_number = "", street = "",department ="", aux=0;
-        const direccion = values.peypeData.address.split(",")
+        var is_exposed_person = "true", street_number = "", street = "",department ="", aux=0, datosPeyPe = '';
+        if(values.check_peype == 1){
+            datosPeyPe = values.peypeData;
+        }else{
+            datosPeyPe = values.peypeData2;
+        }
+        const direccion = datosPeyPe.address.split(",")
         department = direccion[0];
         const calleYNumero = direccion[1].split(" ");
         const longitud = calleYNumero.length;
@@ -47,6 +52,7 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
         if(values.is_exposed_person == 0){
             is_exposed_person = false;
         }
+        
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -55,15 +61,15 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
                                     password:           values.password,
                                     username:           celular,
                                     oauthtoken:         "oauthtoken",
-                                    first_name:         values.peypeData.first_name,
-                                    last_name:          values.peypeData.last_name,
+                                    first_name:         datosPeyPe.first_name,
+                                    last_name:          datosPeyPe.last_name,
                                     document_id:        values.document_id,
                                     is_exposed_person:  is_exposed_person,
-                                    address:            values.peypeData.address,
-                                    birthdate:          values.peypeData.birthdate,
-                                    cuit:               values.peypeData.cuit,
-                                    postal_address:     values.peypeData.postal_address,
-                                    province:           values.peypeData.province,
+                                    address:            datosPeyPe.address,
+                                    birthdate:          datosPeyPe.birthdate,
+                                    cuit:               datosPeyPe.cuit,
+                                    postal_address:     datosPeyPe.postal_address,
+                                    province:           datosPeyPe.province,
                                     location: {
                                         location: {
                                             lat:        "",
@@ -72,10 +78,10 @@ const UserDeclarationUif = ({ prevStep, handleChange, values, nextStep }) => {
                                         street_number:  street_number,
                                         street:         street,
                                         deparment:      department,
-                                        province:       values.peypeData.province,
+                                        province:       datosPeyPe.province,
                                         country:        "AR",
-                                        postal_address: values.peypeData.postal_address,
-                                        address:        values.peypeData.address
+                                        postal_address: datosPeyPe.postal_address,
+                                        address:        datosPeyPe.address
                                     },
                                     province_id:        "",
                                     nick:               "WEB",

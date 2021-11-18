@@ -26,7 +26,7 @@ const UserEnd = ({ values, prevStep }) => {
                 <Container component="main" maxWidth="xs">
                     <div>
                         <div class="pt-2 pb-4">
-                            <p class="text-secondary-500  text-xl text-center font-bold font-comfortaa">¡ Felicitaciones, {values.peypeData.first_name} !</p>
+                            <p class="text-secondary-500  text-xl text-center font-bold font-comfortaa">¡ Felicitaciones, {values.check_peype == '1' ? values.peypeData.first_name : values.peypeData2.first_name } !</p>
                             <p class="text-secondary-500  text-xl text-center font-bold font-comfortaa">Ya tenes tu cuenta</p>
                         </div>
 
