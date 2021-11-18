@@ -54,6 +54,7 @@ const UserPhone = ({ prevStep, nextStep, handleChange, values }) => {
     }
 
     const sendSMS = async() => {
+        
         const celular = '+549' + values.phone;
         const requestOptions = {
             method: 'POST',
